@@ -1,0 +1,224 @@
+{
+  "name": "rexbot-claude-skill-library",
+  "version": "0.6",
+  "summary": "A RexBot / Rex Hub community skill library packaged specifically for Claude Code.",
+  "counts": {
+    "skills": 185,
+    "categories": {
+      "core": 13,
+      "safety": 8,
+      "research": 10,
+      "engineering": 20,
+      "product": 16,
+      "attention": 26,
+      "operations": 16,
+      "documentation": 11,
+      "data": 10,
+      "design": 9,
+      "program": 9,
+      "ai": 12,
+      "sales": 9,
+      "quality": 8,
+      "security": 8
+    },
+    "internal_only": 21,
+    "slash_visible": 164,
+    "model_visible": 76,
+    "slash_first": 109,
+    "profiles": 22
+  },
+  "prompt_overhead": {
+    "full_library_model_visible_chars": 18549,
+    "full_library_model_visible_tokens": 4637.2
+  },
+  "profiles": [
+    {
+      "name": "ai_builder",
+      "summary": "Agent design, prompt architecture, evals, routing, memory, and tool-surface review.",
+      "skills": 37,
+      "model_visible": 30,
+      "estimated_prompt_chars": 7337,
+      "estimated_prompt_tokens": 1834.2
+    },
+    {
+      "name": "attention_builder",
+      "summary": "Project attention, positioning, launch, proof, and distribution.",
+      "skills": 59,
+      "model_visible": 29,
+      "estimated_prompt_chars": 7156,
+      "estimated_prompt_tokens": 1789.0
+    },
+    {
+      "name": "builder_engineering",
+      "summary": "Repo work, debugging, upgrades, review, release safety, and engineering execution.",
+      "skills": 49,
+      "model_visible": 36,
+      "estimated_prompt_chars": 8897,
+      "estimated_prompt_tokens": 2224.2
+    },
+    {
+      "name": "commercial_operator",
+      "summary": "Sales discovery, account planning, mutual action plans, proposals, and launch-adjacent support.",
+      "skills": 35,
+      "model_visible": 24,
+      "estimated_prompt_chars": 5973,
+      "estimated_prompt_tokens": 1493.2
+    },
+    {
+      "name": "content_distribution",
+      "summary": "Content systems, SEO, proof, social assets, and channel-ready outputs.",
+      "skills": 32,
+      "model_visible": 22,
+      "estimated_prompt_chars": 5483,
+      "estimated_prompt_tokens": 1370.8
+    },
+    {
+      "name": "customer_discovery",
+      "summary": "Customer discovery, product learning, interviews, win-loss, and product synthesis.",
+      "skills": 31,
+      "model_visible": 24,
+      "estimated_prompt_chars": 5970,
+      "estimated_prompt_tokens": 1492.5
+    },
+    {
+      "name": "data_analytics",
+      "summary": "Analytics planning, metric design, segmentation, dashboards, experiments, and data-quality work.",
+      "skills": 36,
+      "model_visible": 29,
+      "estimated_prompt_chars": 7202,
+      "estimated_prompt_tokens": 1800.5
+    },
+    {
+      "name": "design_product",
+      "summary": "Design briefs, critique, journeys, system audits, localization readiness, and UX work.",
+      "skills": 37,
+      "model_visible": 27,
+      "estimated_prompt_chars": 6736,
+      "estimated_prompt_tokens": 1684.0
+    },
+    {
+      "name": "docs_support",
+      "summary": "Documentation architecture, support content, examples, release notes, and troubleshooting systems.",
+      "skills": 36,
+      "model_visible": 23,
+      "estimated_prompt_chars": 5720,
+      "estimated_prompt_tokens": 1430.0
+    },
+    {
+      "name": "full_library",
+      "summary": "All skills enabled. Use only with explicit allowlists and an understanding of context cost.",
+      "skills": 145,
+      "model_visible": 63,
+      "estimated_prompt_chars": 15390,
+      "estimated_prompt_tokens": 3847.5
+    },
+    {
+      "name": "generalist_builder",
+      "summary": "Balanced general-purpose profile for mixed research, docs, product, engineering, ops, and quality work.",
+      "skills": 49,
+      "model_visible": 38,
+      "estimated_prompt_chars": 9358,
+      "estimated_prompt_tokens": 2339.5
+    },
+    {
+      "name": "launch_operator",
+      "summary": "A focused launch-day profile for narrative, assets, channels, docs, and follow-through.",
+      "skills": 33,
+      "model_visible": 26,
+      "estimated_prompt_chars": 6454,
+      "estimated_prompt_tokens": 1613.5
+    },
+    {
+      "name": "maintainer_operator",
+      "summary": "Maintenance, CI, incidents, release checks, docs, handoffs, and operational hygiene.",
+      "skills": 36,
+      "model_visible": 27,
+      "estimated_prompt_chars": 6716,
+      "estimated_prompt_tokens": 1679.0
+    },
+    {
+      "name": "minimal_core",
+      "summary": "Lean default profile for safe everyday OpenClaw work.",
+      "skills": 21,
+      "model_visible": 21,
+      "estimated_prompt_chars": 5247,
+      "estimated_prompt_tokens": 1311.8
+    },
+    {
+      "name": "product_systems",
+      "summary": "Product strategy, journeys, metrics, design, and execution design.",
+      "skills": 43,
+      "model_visible": 34,
+      "estimated_prompt_chars": 8441,
+      "estimated_prompt_tokens": 2110.2
+    },
+    {
+      "name": "program_operator",
+      "summary": "Roadmaps, milestones, governance, stakeholder updates, scope tradeoffs, and coordination.",
+      "skills": 36,
+      "model_visible": 27,
+      "estimated_prompt_chars": 6702,
+      "estimated_prompt_tokens": 1675.5
+    },
+    {
+      "name": "release_operator",
+      "summary": "Release planning, smoke tests, incident readiness, rollout control, and post-launch follow-through.",
+      "skills": 28,
+      "model_visible": 19,
+      "estimated_prompt_chars": 4824,
+      "estimated_prompt_tokens": 1206.0
+    },
+    {
+      "name": "research_operator",
+      "summary": "Research-heavy discovery and strategy with a light operations and docs layer.",
+      "skills": 37,
+      "model_visible": 24,
+      "estimated_prompt_chars": 5947,
+      "estimated_prompt_tokens": 1486.8
+    },
+    {
+      "name": "revenue_operator",
+      "summary": "Account research, discovery, mutual action plans, proposals, launch support, and proof-backed GTM work.",
+      "skills": 27,
+      "model_visible": 12,
+      "estimated_prompt_chars": 3076,
+      "estimated_prompt_tokens": 769.0
+    },
+    {
+      "name": "security_quality",
+      "summary": "AppSec, threat modeling, QA planning, release checks, and change-safety work.",
+      "skills": 36,
+      "model_visible": 24,
+      "estimated_prompt_chars": 6036,
+      "estimated_prompt_tokens": 1509.0
+    },
+    {
+      "name": "solo_founder_attention",
+      "summary": "A founder-oriented profile for messaging, product shaping, proof, launch, and follow-through.",
+      "skills": 39,
+      "model_visible": 29,
+      "estimated_prompt_chars": 7168,
+      "estimated_prompt_tokens": 1792.0
+    },
+    {
+      "name": "team_operator",
+      "summary": "Cross-functional planning, governance, hiring, docs, status updates, and operational coordination.",
+      "skills": 28,
+      "model_visible": 16,
+      "estimated_prompt_chars": 4033,
+      "estimated_prompt_tokens": 1008.2
+    }
+  ],
+  "publisher": "RexBot / Rex Hub",
+  "homepage": "https://reggierexai-design.github.io/rexhub/",
+  "project_attribution": "Community Claude Code skill library published by RexBot / Rex Hub.",
+  "official_openclaw_pack": false,
+  "platform_target": "Claude Code",
+  "content_depth": {
+    "avg_skill_words": 619.4,
+    "min_skill_words": 581,
+    "max_skill_words": 669,
+    "required_sections_per_skill": 12
+  },
+  "source_variant": "openclaw-generalist-skill-library-v0.6-rexbot"
+}

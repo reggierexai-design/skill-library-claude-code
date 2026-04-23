@@ -1,0 +1,38 @@
+// Use this profile with scripts/install_profile.py to symlink or copy the listed skills into .claude/skills or ~/.claude/skills.
+// These profile files remain curated skill lists, not native platform config.
+{
+  agents: {
+    defaults: {
+      skills: [
+        "core_context_budget",
+        "core_decision_record",
+        "core_handoff_summary",
+        "core_plan_task",
+        "core_parallelize_work",
+        "core_review_changes",
+        "core_verify_done",
+        "safe_external_claims",
+        "safe_pii_minimization",
+        "ops_project_brief",
+        "ops_status_update",
+        "ops_meeting_prep",
+        "ops_decision_log",
+        "ops_kpi_review",
+        "ops_sprint_planning",
+        "ops_change_management",
+        "ops_hiring_scorecard",
+        "ops_interview_loop",
+        "pm_milestone_plan",
+        "pm_scope_tradeoffs",
+        "pm_stakeholder_update",
+        "pm_governance_model",
+        "pm_risk_register",
+        "doc_glossary_builder",
+        "doc_concept_explainer",
+        "doc_knowledge_base_article",
+        "prod_persona_snapshot",
+        "prod_feedback_synthesis",
+      ],
+    },
+  },
+}

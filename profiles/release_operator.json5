@@ -1,0 +1,38 @@
+// Use this profile with scripts/install_profile.py to symlink or copy the listed skills into .claude/skills or ~/.claude/skills.
+// These profile files remain curated skill lists, not native platform config.
+{
+  agents: {
+    defaults: {
+      skills: [
+        "core_context_budget",
+        "core_decision_record",
+        "core_execute_safely",
+        "core_plan_task",
+        "core_recover_after_fail",
+        "core_review_changes",
+        "core_risk_gate",
+        "core_verify_done",
+        "safe_external_claims",
+        "safe_high_impact_changes",
+        "safe_live_systems",
+        "safe_secret_hygiene",
+        "eng_release_readiness",
+        "eng_feature_flag_rollout",
+        "eng_migration_safety",
+        "eng_ci_failure_triage",
+        "eng_code_review_pass",
+        "qa_acceptance_test_plan",
+        "qa_release_smoke_test",
+        "qa_risk_based_testing",
+        "qa_regression_sweep",
+        "ops_change_management",
+        "ops_launch_retrospective",
+        "ops_postmortem_author",
+        "ops_oncall_handoff",
+        "ops_status_update",
+        "doc_release_notes",
+        "doc_troubleshooting_guide",
+      ],
+    },
+  },
+}
