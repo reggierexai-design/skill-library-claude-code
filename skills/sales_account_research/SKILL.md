@@ -1,56 +1,51 @@
----
+﻿---
 name: sales_account_research
 description: "Summarize an account in terms of likely pain, stakeholders, timing, and approach angles."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83c\udfe2","requires":{"config":["browser.enabled"]}}}
 ---
-
-
-# Sales Account Research
 
 ## Purpose
 - Summarize an account in terms of likely pain, stakeholders, timing, and approach angles.
-- This is a **sales specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is a **sales specialist** for OpenClaw operators who need a result that can survive review, handoff, or execution.
 
 ## Use when
 - Use before outreach, a demo, or account planning for a named company or organization.
-- The main bottleneck is best solved through sales work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not confuse random facts with buying relevance.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Account or pipeline context, stakeholder roles, deal stage, timeline, and next commitment needed.
-- Known pains, objections, proof assets, pricing context, and competitive pressure.
-- Whether the output should support discovery, demo, follow-up, proposal, or forecast discipline.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- Company name and industry.
+- Target contacts: who should we be talking to?
+- Known initiatives or pain points from public sources.
+- Competitive landscape: who else serves this account?
+- Timing triggers: funding, leadership changes, product launches.
 
 ## Operating rules
 - Research for relevance, not trivia.
 - Focus on pain, change, fit, and stakeholders.
 - Separate facts from inference clearly.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- Research should inform the outreach, not replace it. 15 minutes of focused research beats 2 hours of exhaustive research if it leads to a relevant first message.
+- Look for trigger events: funding rounds, leadership changes, product launches, regulatory shifts. These create urgency and relevance.
+- Cross-reference multiple sources. LinkedIn says one thing; the company blog says another; job postings reveal what they're building.
+- End research with a specific outreach hypothesis: what angle, for whom, based on what evidence.
 
+- Discovery before pitch. Understand the prospect's actual problem before presenting your solution. Pitching without discovery is guessing.
+- Lead with the problem you solve, not the features you have. Buyers buy outcomes, not capabilities.
+- Handle objections with proof, not pressure. A prospect who feels pressured will agree and then ghost.
+- Track conversion at each stage of the funnel. A leak at any stage kills the pipeline regardless of top-of-funnel volume.
+- Follow-up is where deals are won or lost. 80% of sales require 5+ touches but most sellers stop after 2.
 ## Claude Code tool pattern
-- Read the account notes, product truth, and available proof before writing buyer-facing material.
-- Keep recommendations tied to buyer movement: trust, urgency, qualification, and next step quality.
-- Use specific pain language and proof instead of generic persuasion tropes.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- Use `WebFetch` to research prospect companies, news, and relevant context before outreach.
+- Use `Read` to load CRM data, call notes, and deal history.
+- After sales planning, use `att_proof_mining` to ensure every claim in materials is backed.
 
 ## Expanded workflow
 1. Define the target account and motion.
 2. Collect facts relevant to likely pain and timing.
 3. Infer potential stakeholders and approach angles.
 4. Return a compact account brief with cautions.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
-
 ## Output contract
 - Account context
 - Likely pain and triggers
@@ -60,15 +55,16 @@ disable-model-invocation: true
 - Stage risk, missing proof, and the strongest next-step recommendation.
 
 ## Failure modes to avoid
-- Writing persuasive copy that ignores deal stage or actual buyer risk.
-- Confusing activity with movement or overtrusting pipeline labels.
-- Promising proof, timelines, or product capabilities that are not verified.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Researching everything without forming an outreach hypothesis.
+- Missing trigger events that create urgency.
+- Relying on a single source â€” cross-reference for accuracy.
+- Researching the company but not the specific contacts.
+- No competitive context â€” you're selling against alternatives you haven't identified.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Account research: company profile, tech stack, initiatives, pain points, key contacts.
+- Relevance assessment: how your solution fits their needs.
+- Recommended outreach angle and timing.
 
 ## Example invocation
 - Slash: `/sales_account_research <task>`
@@ -79,5 +75,9 @@ disable-model-invocation: true
 
 ## Quality bar
 - Good account research sharpens the conversation instead of bloating it.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+- Every outreach starts with the prospect's context, not your product pitch.
+- Objection handling uses proof and reframing, not pressure.
+- The funnel has measurable conversion rates at each stage.
+- Follow-up cadence is defined and adhered to.
+## Related workflows
+- Sales flow: `sales_account_research` â†’ `sales_discovery_call_plan` â†’ `sales_demo_flow` â†’ `sales_mutual_action_plan`

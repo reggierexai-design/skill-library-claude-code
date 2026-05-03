@@ -1,83 +1,65 @@
----
+﻿---
 name: att_content_repurposing
 description: "Turn one strong source asset into channel-ready derivatives without losing the core message."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\u267b\ufe0f"}}
 ---
-
-
-# Attention Content Repurposing
 
 ## Purpose
 - Turn one strong source asset into channel-ready derivatives without losing the core message.
-- This is an **attention specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
 
 ## Use when
 - Use when a launch, webinar, article, demo, or case study should feed multiple channels.
-- The main bottleneck is best solved through attention work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use when the source material is too weak or incoherent to repurpose well.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Audience, offer, proof, timing, channel mix, and the action you want people to take.
-- Existing assets, customer language, constraints, and how bold or conservative the positioning can be.
-- Whether the goal is launch attention, ongoing demand, activation, conversion, or reputation building.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- Source content to repurpose: original deep piece (blog post, case study, video, webinar).
+- Target channels: where derivatives need to land (X threads, LinkedIn posts, short video, email, Slack).
+- Team capacity: how much derivative production is realistic.
+- Performance data: which formats and channels already work for this audience.
 
 ## Operating rules
-- Work from evidence in the workspace, the prompt, or verified sources.
-- Keep the output decision-oriented rather than bloated.
-- Name assumptions, risks, and unresolved questions explicitly.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- One deep piece should produce 3-5 derivatives minimum. If you can't spin off 3, the original wasn't structured for repurposing.
+- Match derivative format to channel convention, not to the original format. A LinkedIn post has its own rhythm.
+- Preserve the hook and proof, compress the middle. Every derivative needs the hook and the proof.
+- Derivatives should reference the original, not replace it. Drive back to the deep piece for the full story.
 
 ## Claude Code tool pattern
-- Ground messaging in real proof, user language, and the current product truth before polishing copy.
-- Read existing site copy, launch assets, notes, or research so the new output fits the system instead of floating beside it.
-- When external facts or competitors matter, verify them before using them in public-facing content.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- Use `WebFetch` to research competitor content and current platform conventions.
+- Read existing site copy, product pages, and proof assets before drafting so output fits the real product truth.
+- When external claims appear, verify before publishing with `safe_external_claims`.
+- After drafting, run `att_proof_mining` to verify every claim has backing.
 
 ## Expanded workflow
-1. Define the exact slice of work in scope.
-2. Gather the minimum evidence needed to reason safely.
-3. Produce the plan, review, or artifact that best fits the task.
-4. Check the output for gaps, regressions, or overclaiming.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
+1. Identify the source piece and its core hook, proof, and CTA.
+2. List target channels and the native format each requires.
+3. For each channel, extract: the hook (adapted to channel style), 1-2 strongest proof points, and the CTA (linking back to original).
+4. Write each derivative in the channel's native format and length.
+5. Bundle all derivatives with the original for coordinated scheduling via `att_content_calendar`.
 
 ## Output contract
-- Scope
-- Key findings or plan
-- Risks and assumptions
-- Recommended next actions
-- Channel-ready draft or plan with hook, proof, CTA, and sequencing.
-- Audience assumptions, risks, and the missing proof that would strengthen the asset.
-
 ## Failure modes to avoid
-- Writing generic hype that is not anchored in proof or audience tension.
-- Creating channel content before the narrative, hook, or CTA is actually sharp.
-- Confusing attention with trust; the output should attract and hold scrutiny.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Copy-pasting the same content across channels without format adaptation â€” each platform has its own conventions.
+- Creating derivatives weaker than the original â€” if a derivative can't stand alone, don't ship it.
+- Forgetting the CTA back to the deep piece â€” derivatives that don't drive traffic are dead ends.
+- Over-producing derivatives from thin originals â€” 5 derivatives of a shallow post just creates 6 shallow pieces.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- List all derivatives created and their target channels.
+- Note the scheduling order: which derivative posts when relative to the original.
+- Flag any channels where the derivative needs platform-specific editing before posting.
 
 ## Example invocation
 - Slash: `/att_content_repurposing <task>`
 - Natural language: "Use attention Content Repurposing to turn one strong source asset into channel-ready derivatives without losing the core message."
-- Example: "Build an attention asset that feels specific, credible, and worth sharing."
-- Example: "Turn this product reality into a sharper story, launch angle, or distribution plan."
+- Example: "I wrote a 2000-word blog post. Spin it into a thread, LinkedIn post, and email tease."
+- Example: "This launch post got good engagement. Break it into 3 channel-native derivatives."
 - Often paired with: `att_message_house`, `att_launch_plan`, `att_proof_mining`
 
 ## Quality bar
-- The result should be specific enough that another operator could act on it without guessing.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+## Related workflows
+- Content system: `att_message_house` â†’ `att_content_calendar` â†’ `att_content_repurposing`
+- Launch sequence: `att_launch_plan` â†’ `att_proof_mining` â†’ `att_thread_writer`
+- Proof deployment: `att_proof_mining` â†’ `att_case_study_builder` â†’ `att_social_proof_pack`

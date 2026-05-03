@@ -2,82 +2,71 @@
 name: att_founder_story
 description: "Craft a believable founder or project origin story that builds trust without sounding manufactured."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83d\udce3"}}
 ---
-
-
-# Founder Story
 
 ## Purpose
 - Craft a believable founder or project origin story that builds trust without sounding manufactured.
-- This is an **attention specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
 
 ## Use when
 - Use for about pages, intros, investor or community blurbs, podcasts, and launch narratives.
-- The main bottleneck is best solved through attention work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use if the user explicitly wants a brand voice with no founder presence.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Audience, offer, proof, timing, channel mix, and the action you want people to take.
-- Existing assets, customer language, constraints, and how bold or conservative the positioning can be.
-- Whether the goal is launch attention, ongoing demand, activation, conversion, or reputation building.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- The founder's real experience: what problem did they face, what did they try, what failed, what worked?
+- Audience: investors, customers, hires, or press? Each needs a different angle.
+- The vulnerability level: how honest can the founder be about failures and struggles?
+- The connection to the product: how does the personal story prove the product's reason to exist?
 
 ## Operating rules
 - Tell the origin in terms of a real problem, obsession, or unfair insight.
 - Keep the hero as the user or mission, not the ego of the founder.
 - Avoid fake struggle arcs and hype clichés.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
 
 ## Claude Code tool pattern
-- Ground messaging in real proof, user language, and the current product truth before polishing copy.
-- Read existing site copy, launch assets, notes, or research so the new output fits the system instead of floating beside it.
-- When external facts or competitors matter, verify them before using them in public-facing content.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- Use `WebFetch` to research competitor content and current platform conventions.
+- Read existing site copy, product pages, and proof assets before drafting so output fits the real product truth.
+- When external claims appear, verify before publishing with `safe_external_claims`.
+- After drafting, run `att_proof_mining` to verify every claim has backing.
 
 ## Expanded workflow
 1. Identify the key origin signal, pain, or insight.
 2. Choose the credible narrative spine.
 3. Write the story in the required length and tone.
 4. Check it for trust, humility, and memorability.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
-
 ## Output contract
 - Story spine
 - Short version
 - Longer version if needed
 - Notes on trust and proof
-- Channel-ready draft or plan with hook, proof, CTA, and sequencing.
-- Audience assumptions, risks, and the missing proof that would strengthen the asset.
-
 ## Failure modes to avoid
-- Writing generic hype that is not anchored in proof or audience tension.
-- Creating channel content before the narrative, hook, or CTA is actually sharp.
-- Confusing attention with trust; the output should attract and hold scrutiny.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Triumph narratives without struggle.
+- Disconnecting the story from the product.
+- Ghostwriting in a voice that doesn't match the founder's style.
+- Over-polishing — removing the warts that make the story credible.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Provide all versions (2-min, 5-min, 30-sec) with context on where each fits.
+- Flag any details the founder wants kept private.
+- Note where this integrates: about page, investor deck, press kit.
 
 ## Example invocation
 - Slash: `/att_founder_story <task>`
 - Natural language: "Use founder Story to craft a believable founder or project origin story that builds trust without sounding manufactured."
-- Example: "Build an attention asset that feels specific, credible, and worth sharing."
-- Example: "Turn this product reality into a sharper story, launch angle, or distribution plan."
+- Example: "I am a disabled vet who taught myself to code and launched a SaaS. Craft the origin story."
+- Example: "Write a 2-minute founder story for an investor meeting that connects my experience to the product."
 - Often paired with: `att_message_house`, `att_launch_plan`, `att_proof_mining`
 
 ## Quality bar
-- The best founder story explains why this project had to exist.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+
+- The story has a clear struggle → breaking point → solution arc.
+- A reader finishes thinking 'I understand why this product exists.'
+- The founder confirms it sounds like their actual voice.
+- Multiple lengths available.
+
+## Related workflows
+- Content system: `att_message_house` → `att_content_calendar` → `att_content_repurposing`
+- Launch sequence: `att_launch_plan` → `att_proof_mining` → `att_thread_writer`
+- Proof deployment: `att_proof_mining` → `att_case_study_builder` → `att_social_proof_pack`

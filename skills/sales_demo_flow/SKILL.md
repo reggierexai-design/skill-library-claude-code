@@ -1,56 +1,51 @@
----
+﻿---
 name: sales_demo_flow
 description: "Shape a demo around the buyer problem, proof points, and next commitment instead of a product tour."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83d\udda5\ufe0f"}}
 ---
-
-
-# Sales Demo Flow
 
 ## Purpose
 - Shape a demo around the buyer problem, proof points, and next commitment instead of a product tour.
-- This is a **sales specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is a **sales specialist** for OpenClaw operators who need a result that can survive review, handoff, or execution.
 
 ## Use when
 - Use before demonstrating a product to prospects, partners, or internal champions.
-- The main bottleneck is best solved through sales work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not let the demo become an exhaustive feature walk-through.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Account or pipeline context, stakeholder roles, deal stage, timeline, and next commitment needed.
-- Known pains, objections, proof assets, pricing context, and competitive pressure.
-- Whether the output should support discovery, demo, follow-up, proposal, or forecast discipline.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- Buyer persona: technical, business, or executive?
+- Their pain point: what problem are they trying to solve?
+- Proof points: what results can you show that match their context?
+- Known objections: what are they skeptical about?
+- Time available: 15 min, 30 min, or 60 min?
 
 ## Operating rules
 - Lead with the buyer problem and the payoff.
 - Show the smallest set of proof points that matter.
 - Land on a concrete next commitment.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- Demo the outcome, not the features. Show them getting what they want, not you showing what the product does.
+- Customize every demo. A generic demo is a sales pitch; a customized demo is a consultation.
+- One demo, one story. Show the single most relevant workflow, not every feature.
+- End with a clear next step. 'Any questions?' is not a close. 'Shall we discuss pilot timing?' is.
 
+- Discovery before pitch. Understand the prospect's actual problem before presenting your solution. Pitching without discovery is guessing.
+- Lead with the problem you solve, not the features you have. Buyers buy outcomes, not capabilities.
+- Handle objections with proof, not pressure. A prospect who feels pressured will agree and then ghost.
+- Track conversion at each stage of the funnel. A leak at any stage kills the pipeline regardless of top-of-funnel volume.
+- Follow-up is where deals are won or lost. 80% of sales require 5+ touches but most sellers stop after 2.
 ## Claude Code tool pattern
-- Read the account notes, product truth, and available proof before writing buyer-facing material.
-- Keep recommendations tied to buyer movement: trust, urgency, qualification, and next step quality.
-- Use specific pain language and proof instead of generic persuasion tropes.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- Use `WebFetch` to research prospect companies, news, and relevant context before outreach.
+- Use `Read` to load CRM data, call notes, and deal history.
+- After sales planning, use `att_proof_mining` to ensure every claim in materials is backed.
 
 ## Expanded workflow
 1. Define the audience, goal, and likely concerns.
 2. Sequence the narrative, proof points, and transitions.
 3. Plan the close and next step ask.
 4. Return a demo flow with talking notes.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
-
 ## Output contract
 - Audience and goal
 - Demo sequence
@@ -60,15 +55,16 @@ disable-model-invocation: true
 - Stage risk, missing proof, and the strongest next-step recommendation.
 
 ## Failure modes to avoid
-- Writing persuasive copy that ignores deal stage or actual buyer risk.
-- Confusing activity with movement or overtrusting pipeline labels.
-- Promising proof, timelines, or product capabilities that are not verified.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Feature tour â€” showing everything, solving nothing.
+- Generic demo â€” same flow for every buyer regardless of context.
+- No problem setup â€” jumping to the solution before establishing the pain.
+- Ending with 'any questions?' instead of a clear next step.
+- Running over time â€” respect the buyer's schedule.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Demo flow: objectives, story arc, key moments, objection handling, CTA.
+- Customization points for different buyer personas.
+- Fallback plan if the demo encounters issues.
 
 ## Example invocation
 - Slash: `/sales_demo_flow <task>`
@@ -78,6 +74,14 @@ disable-model-invocation: true
 - Often paired with: `sales_account_research`, `sales_discovery_call_plan`, `sales_pipeline_review`
 
 ## Quality bar
-- A good demo flow makes the product feel like the answer to a live problem.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+- Demo shows one relevant outcome for the specific buyer.
+- Demo data and scenario match the buyer's context.
+- Problem setup before solution.
+- Clear next step proposed at the end.
+- Demo fits within the allotted time.
+- Every outreach starts with the prospect's context, not your product pitch.
+- Objection handling uses proof and reframing, not pressure.
+- The funnel has measurable conversion rates at each stage.
+- Follow-up cadence is defined and adhered to.
+## Related workflows
+- Sales flow: `sales_account_research` â†’ `sales_discovery_call_plan` â†’ `sales_demo_flow` â†’ `sales_mutual_action_plan`

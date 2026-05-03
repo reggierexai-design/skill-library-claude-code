@@ -2,55 +2,46 @@
 name: eng_refactor_design
 description: "Plan or execute a refactor that improves structure without losing behavior."
 user-invocable: true
-disable-model-invocation: false
+metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
-
-
-# Refactor Design
 
 ## Purpose
 - Plan or execute a refactor that improves structure without losing behavior.
-- This is an **engineering specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
 
 ## Use when
 - Use when the current code works poorly enough that maintenance speed, clarity, or correctness is suffering.
-- The main bottleneck is best solved through engineering work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use for cosmetic rewrites or speculative abstractions.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Target system, repo area, environment, and the concrete failure, change, or performance goal.
-- Relevant files, logs, tests, stack traces, commands, and deployment constraints.
-- Definition of done: fix, refactor, review, migration plan, or release-safety decision.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- Current code structure: what exists and why is it hard to change?
+- Target architecture: what should the code look like after refactoring?
+- Change velocity: what changes are slow or risky because of the current structure?
+- Test coverage: how much safety do existing tests provide during refactoring?
+- Dependency map: what depends on the code being refactored?
 
 ## Operating rules
 - Refactor around pressure points, not taste.
 - Preserve behavior while changing structure.
 - Break large refactors into reviewable slices.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
 
+- Read the code and the error before proposing a fix. Diagnose first, treat second.
+- Prefer the minimal change that solves the problem. Every line added is a line that can break.
+- Test the fix, test the surrounding area, test the edge cases. A fix that works for the happy path only is not a fix.
+- Document why, not just what. Future engineers need to understand the reasoning, not just see the change.
+- If the fix takes longer than 30 minutes, stop and reconsider the approach. Complex fixes usually indicate the wrong diagnosis.
 ## Claude Code tool pattern
-- Scout the repo before editing; read the nearest implementation, tests, and docs that define current behavior.
-- Use minimal diffs, bounded commands, and targeted verification instead of broad speculative changes.
-- When code is touched, explain what changed, why it is safe, and how it was verified.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- Use `Bash` to run diagnostic commands, read logs, and check system state.
+- Use `Read` to inspect source files, configs, and error output directly.
+- Use `Edit` for targeted code changes. Prefer `eng_minimal_patch` scope discipline.
+- After changes, use `eng_test_strategy` to verify the fix works and nothing else broke.
 
 ## Expanded workflow
 1. Identify the structural problem and desired end state.
 2. Define safe boundaries and incremental stages.
 3. Execute or describe the smallest high-value sequence.
 4. Verify behavior stability after each stage.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
-
 ## Output contract
 - Structural problem
 - Refactor target
@@ -60,15 +51,17 @@ disable-model-invocation: false
 - Verification evidence, remaining risks, and rollback or next-step notes when relevant.
 
 ## Failure modes to avoid
-- Patching symptoms without proving the cause or expected behavior.
-- Bundling unrelated cleanup into a debugging or release task.
-- Stopping after the code compiles without checking the user-visible outcome.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Rewriting instead of refactoring — a rewrite is a new system with new bugs; a refactor preserves behavior.
+- No test coverage before refactoring — refactoring without tests is archaeology with dynamite.
+- Big bang refactoring — changing too much at once makes rollback impossible.
+- Refactoring without a clear target — 'make it better' is not a design.
+- Ignoring the strangle fig pattern — incremental migration is safer than wholesale replacement.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Refactoring plan: current state, target state, incremental steps.
+- Test coverage assessment before starting.
+- List of steps with verification at each stage.
+- Any steps that require team coordination or feature flags.
 
 ## Example invocation
 - Slash: `/eng_refactor_design <task>`
@@ -78,6 +71,15 @@ disable-model-invocation: false
 - Often paired with: `eng_repo_onboarding`, `eng_minimal_patch`, `eng_test_strategy`
 
 ## Quality bar
-- A good refactor buys future speed without hiding new risk.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+
+- The refactoring has a clear target architecture.
+- Existing tests cover the code before refactoring begins.
+- Each refactoring step is small enough to verify independently.
+- Behavior is preserved at every step — no functional changes mixed with structural changes.
+- The fix is the smallest change that resolves the issue without introducing new problems.
+- Root cause is identified and documented, not just the symptom.
+- Tests cover the fix, the regression, and at least one edge case.
+- The change is reviewable in under 10 minutes.
+## Related workflows
+- Debug chain: `eng_bug_triage` → `eng_debug_systematically` → `eng_minimal_patch` → `eng_test_strategy`
+- Release safety: `eng_release_readiness` → `eng_code_review_pass` → `eng_feature_flag_rollout`

@@ -1,61 +1,50 @@
----
+﻿---
 name: pm_governance_model
 description: "Define decision rights, review cadence, escalation paths, and operating rules for a program."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83c\udfdb\ufe0f"}}
 ---
-
-
-# Program Governance Model
 
 ## Purpose
 - Define decision rights, review cadence, escalation paths, and operating rules for a program.
-- This is a **program specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is a **program specialist** for OpenClaw operators who need a result that can survive review, handoff, or execution.
 
 ## Use when
 - Use when a cross-functional program lacks clear ownership or repeatedly stalls on decisions.
-- The main bottleneck is best solved through program work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use for small one-owner projects with obvious governance already.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
 - Program goal, timeline, dependencies, stakeholders, and the decision cadence.
 - Known risks, scope pressure, reporting needs, and the state of the backlog or roadmap.
 - What artifact is missing: milestone plan, risk register, roadmap scenario, or stakeholder update.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
 
 ## Operating rules
-- Work from evidence in the workspace, the prompt, or verified sources.
-- Keep the output decision-oriented rather than bloated.
-- Name assumptions, risks, and unresolved questions explicitly.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- Governance should enable decisions, not prevent them. If your governance model slows decisions more than it improves them, it's bureaucracy.
+- Define who decides, not just who approves. The difference: deciders own the outcome; approvers just say no.
+- Include reversal criteria. Not every decision needs the same level of review â€” reversible decisions should be fast.
+- The model must include its own update process. Governance that can't change becomes obsolete.
 
+- Scope is defined by what is excluded, not just what is included. A project that includes everything includes nothing on time.
+- Dependencies are risks until they are resolved. Track them actively, not just list them.
+- Stakeholder communication is a deliverable, not an afterthought. A project that succeeds technically but fails politically has failed.
+- Milestones need objective completion criteria. A milestone that requires a meeting to confirm it is done is not a milestone.
+- Risk management is ongoing, not a one-time exercise. Review the risk register weekly, not just at kickoff.
 ## Claude Code tool pattern
 - Read the latest plans, notes, tickets, and status sources before restructuring the program view.
 - Reduce ambiguity in ownership, sequencing, and decision rights before adding more tracking detail.
 - Make tradeoffs explicit so the program can move without hidden assumptions.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
 
 ## Expanded workflow
-1. Define the exact slice of work in scope.
-2. Gather the minimum evidence needed to reason safely.
-3. Produce the plan, review, or artifact that best fits the task.
-4. Check the output for gaps, regressions, or overclaiming.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
+1. List decision types and their current pain points.
+2. Define decision rights: who decides, who advises, who informs.
+3. Set escalation paths for deadlocked decisions.
+4. Differentiate reversible vs irreversible decisions â€” different review levels.
+5. Define the review cadence for the governance model itself.
+6. Document and communicate to all stakeholders.
 
 ## Output contract
-- Scope
-- Key findings or plan
-- Risks and assumptions
-- Recommended next actions
 - Program artifact with owners, milestones, risks, and decision points.
 - Tradeoff summary and the next escalation or approval needed.
 
@@ -63,12 +52,11 @@ disable-model-invocation: true
 - Publishing a plan that ignores dependencies or unowned risks.
 - Treating stakeholder communication as a substitute for real decision-making.
 - Making the roadmap look tidy while underlying constraints stay unresolved.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Governance model: decision rights, approval levels, escalation paths, review cadence.
+- Roles and responsibilities matrix.
+- Process for updating the governance model itself.
 
 ## Example invocation
 - Slash: `/pm_governance_model <task>`
@@ -78,6 +66,9 @@ disable-model-invocation: true
 - Often paired with: `pm_milestone_plan`, `pm_risk_register`, `pm_scope_tradeoffs`
 
 ## Quality bar
-- The result should be specific enough that another operator could act on it without guessing.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+## Related workflows
+- Planning chain: `pm_milestone_plan` â†’ `pm_dependency_map` â†’ `pm_scope_tradeoffs` â†’ `pm_stakeholder_update`
+- Scope explicitly names what is out of scope, not just what is included.
+- Every dependency has an owner and a resolution date.
+- Stakeholder communication plan exists and is being followed.
+- Milestones have objective, verifiable completion criteria.

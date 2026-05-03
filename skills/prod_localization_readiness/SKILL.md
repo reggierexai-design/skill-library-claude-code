@@ -1,61 +1,51 @@
----
+﻿---
 name: prod_localization_readiness
 description: "Review a product or launch for localization, i18n, and translation-readiness gaps."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83c\udf0d"}}
 ---
-
-
-# Product Localization Readiness
 
 ## Purpose
 - Review a product or launch for localization, i18n, and translation-readiness gaps.
-- This is a **product specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is a **product specialist** for OpenClaw operators who need a result that can survive review, handoff, or execution.
 
 ## Use when
 - Use before supporting new languages, locales, regions, or translated content flows.
-- The main bottleneck is best solved through product work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use when the product will remain intentionally single-locale.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
 - Target user, job to be done, current behavior, and the decision or artifact needed.
 - Known constraints around scope, timing, engineering capacity, and metrics.
 - Existing feedback, research, retention data, or pricing context that should shape the recommendation.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
 
 ## Operating rules
-- Work from evidence in the workspace, the prompt, or verified sources.
-- Keep the output decision-oriented rather than bloated.
-- Name assumptions, risks, and unresolved questions explicitly.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- Audit before you translate. Hardcoded strings, inflexible layouts, and culture-specific imagery will block localization faster than translation speed.
+- Design for the longest text. German labels are 30% longer than English. Layouts that break with longer text aren't localization-ready.
+- Externalize all strings. Every user-facing string should be in a resource file, not in code.
+- Plan for ongoing maintenance. Strings change every release; localization isn't a one-time project.
 
+- Start from user problems, not feature ideas. A feature without a user problem is a solution looking for a problem.
+- Quantify the impact before prioritizing. How many users does this affect? How severely? How often?
+- Distinguish between must-have, nice-to-have, and distraction. Ship must-haves, queue nice-to-haves, kill distractions.
+- Every product decision should be falsifiable. State what evidence would prove the decision wrong.
+- Prototype before building. A prototype that takes 2 hours saves 2 weeks of building the wrong thing.
 ## Claude Code tool pattern
 - Read source material such as feedback notes, specs, roadmap items, or analytics before jumping to solutions.
 - Keep recommendations tied to user behavior, value delivery, and the smallest coherent product move.
 - Pair opinionated recommendations with assumptions and the signal that would validate them.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
 
 ## Expanded workflow
-1. Define the exact slice of work in scope.
-2. Gather the minimum evidence needed to reason safely.
-3. Produce the plan, review, or artifact that best fits the task.
-4. Check the output for gaps, regressions, or overclaiming.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
+1. Audit all user-facing content: strings, emails, docs, images.
+2. Check for hardcoded strings and externalize them.
+3. Test layouts with 30% longer text (German/French simulation).
+4. Check date, number, and currency format handling.
+5. Assess culture-specific imagery and color choices.
+6. Estimate localization effort per target market.
+7. Set up the translation workflow and maintenance plan.
 
 ## Output contract
-- Scope
-- Key findings or plan
-- Risks and assumptions
-- Recommended next actions
 - Prioritized recommendation with rationale and tradeoffs.
 - Metric, experiment, or follow-up signal that would confirm the decision.
 
@@ -63,12 +53,11 @@ disable-model-invocation: true
 - Optimizing for feature volume instead of user value or learning speed.
 - Treating personas or journeys as decorative documents rather than decision tools.
 - Returning a strategy answer with no testable next step.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Localization readiness audit: hardcoded strings, date/number formats, layout flexibility, content inventory.
+- Priority fixes before translation can begin.
+- Estimated localization effort by market.
 
 ## Example invocation
 - Slash: `/prod_localization_readiness <task>`
@@ -78,6 +67,10 @@ disable-model-invocation: true
 - Often paired with: `prod_feature_priority`, `prod_experiment_design`, `prod_metric_tree`
 
 ## Quality bar
-- The result should be specific enough that another operator could act on it without guessing.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+## Related workflows
+- Product build: `prod_product_brief` â†’ `prod_jobs_to_be_done` â†’ `prod_feature_priority` â†’ `prod_activation_funnel`
+- Retention loop: `prod_retention_loop` â†’ `prod_feedback_synthesis` â†’ `prod_experiment_design`
+- Every feature traces back to a specific user problem with evidence.
+- Priority is based on user impact x effort, not internal politics or founder preference.
+- The scope is small enough to ship and learn from within one cycle.
+- Success metrics are defined before building begins.

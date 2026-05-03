@@ -1,83 +1,89 @@
----
-name: att_proof_mining
-description: "Extract credible proof points, testimonials, wins, and user language from messy source material."
-user-invocable: true
-disable-model-invocation: false
----
-
-
+--- name: att_proof_mining description: "Extract credible proof points, testimonials, wins, and user language from messy source material." user-invocable: true disable-model-invocation: false metadata: {"openclaw":{"emoji":"📣"}} ---
 # Proof Mining
 
 ## Purpose
 - Extract credible proof points, testimonials, wins, and user language from messy source material.
-- This is an **attention specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is an **attention specialist** for building a proof inventory that makes claims credible and copy persuasive.
 
 ## Use when
-- Use when the user has reviews, chat logs, tickets, notes, case studies, or customer messages that may contain reusable proof.
-- The main bottleneck is best solved through attention work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
+- Use when the user has reviews, chat logs, support tickets, notes, case studies, or customer messages that may contain reusable proof.
+- Use when preparing for a launch, sales page, or investor update and the proof is scattered across tools and inboxes.
+- Use when claims need backing before they go public — "safe_external_claims" before publication.
 
 ## Avoid when
 - Do not invent proof or overstate weak signals as validation.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
+- Do not use when there's genuinely no proof yet — instead, advise building proof first (run a pilot, collect a testimonial, ship a measurable improvement).
+- Do not use for competitive intelligence — that's `res_competitor_scan`.
 
 ## Inputs to gather
-- Audience, offer, proof, timing, channel mix, and the action you want people to take.
-- Existing assets, customer language, constraints, and how bold or conservative the positioning can be.
-- Whether the goal is launch attention, ongoing demand, activation, conversion, or reputation building.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- Customer results: any measurable outcomes, before/after comparisons, or time savings.
+- User feedback: support tickets, emails, social mentions, app store reviews, DMs.
+- Usage data: activation rates, retention curves, feature adoption, time-to-value.
+- Competitor gaps: what can competitors NOT prove that you can?
+- Current proof inventory: what proof assets already exist and what's missing?
+- Source material: paste or attach the raw text (chat logs, emails, review screenshots, notes).
 
 ## Operating rules
-- Preserve meaning, context, and confidence level.
-- Separate direct proof, implied proof, and unsupported claims.
-- Capture the user's own language whenever it is stronger than polished copy.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- **Proof hierarchy (strongest to weakest):** Measured outcome with control ("43% increase vs baseline") > Measured outcome without control ("cut onboarding time from 20 min to 8 min") > Specific testimonial with context ("I used to spend 3 hours on X, now it takes 20 min") > Vague testimonial ("this is great!") > Expert opinion > Social proof count ("10K users"). Always label which tier each proof point sits at.
+- **Separate direct proof, implied proof, and unsupported claims.** Direct proof = verifiable outcome. Implied proof = directional signal that needs caveats. Unsupported = assertion without evidence — flag it, don't deploy it.
+- **Capture the user's own language.** Customer words beat marketing polish. "I was drowning in spreadsheets" is stronger copy than "streamlined workflow management." Transcribe exactly, then annotate.
+- **Tag every proof point by claim it supports.** A proof point without a claim it backs is an orphan. Map: proof → claim → channel where it deploys.
+- **Rate confidence on each point:** high (verifiable, specific, recent), medium (directional but missing specificity or recency), low (anecdotal, old, or unverified). Only deploy high and medium with appropriate caveats.
 
 ## Claude Code tool pattern
-- Ground messaging in real proof, user language, and the current product truth before polishing copy.
-- Read existing site copy, launch assets, notes, or research so the new output fits the system instead of floating beside it.
-- When external facts or competitors matter, verify them before using them in public-facing content.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- When source material is in files (support exports, chat logs, review CSVs), use `Read` to load them directly.
+- When proof references external claims (stats, benchmarks), use `WebFetch` to verify before including.
+- After mining, feed the proof bank into `att_thread_writer`, `att_message_house`, or `att_social_proof_pack` for deployment.
+- When proof is thin, recommend `prod_experiment_design` or `data_experiment_readout` to generate measured outcomes.
 
 ## Expanded workflow
-1. Define what kind of proof is needed.
-2. Extract candidate proof points and recurring language.
-3. Group them by outcome, persona, and credibility level.
-4. Return a proof bank with safe usage notes.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
+1. **Define the proof need.** What claims are being made? What proof is required to back each one? Start from the claims, not the sources.
+2. **Ingest and scan source material.** Read through reviews, tickets, messages, data exports. Highlight anything that could serve as proof — even weak signals.
+3. **Extract candidate proof points.** For each: the exact quote or data point, the source (who/where/when), the claim it supports, and the confidence level.
+4. **Classify by proof hierarchy.** Label each point: measured outcome, specific testimonial, vague testimonial, expert opinion, or social count. Note which tier.
+5. **Map proof to claims and channels.** Which proof backs which claim? Where will it deploy (landing page, sales deck, social, docs)? Find gaps: claims without proof, and proof without claims.
+6. **Capture user language separately.** Pull the strongest verbatim phrases — these become copy assets independent of the proof points.
+7. **Return the proof bank with safe usage notes.** Include confidence ratings, provenance, and recommended deployment. Flag what NOT to say (anything that overstates the proof).
 
 ## Output contract
-- Proof categories
-- High-confidence proof points
-- Useful user language
-- Gaps or risky claims
-- Channel-ready draft or plan with hook, proof, CTA, and sequencing.
-- Audience assumptions, risks, and the missing proof that would strengthen the asset.
+- Proof bank: each point with source, tier, confidence rating, claim it supports, and deployment channel
+- User language bank: strongest verbatim quotes, annotated with context
+- Proof gap analysis: claims that lack backing, proof that lacks claims
+- Priority proof to generate: what measurement or testimonial would unlock the most value if obtained
+- Safe usage notes: what can be said, what needs caveats, what can't be said yet
 
 ## Failure modes to avoid
-- Writing generic hype that is not anchored in proof or audience tension.
-- Creating channel content before the narrative, hook, or CTA is actually sharp.
-- Confusing attention with trust; the output should attract and hold scrutiny.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Publishing vague proof as if it's specific — "improved efficiency" is not proof. "Cut processing time from 4 hours to 22 minutes" is.
+- Cherry-picking outliers — one amazing result is not typical. Note whether results are representative.
+- Fabricating specificity — rounding up ("almost 50%") when the real number is 43% destroys trust when someone checks.
+- Hoarding proof instead of deploying it — mined proof that sits in a spreadsheet helps no one.
+- Ignoring weak proof signals — if testimonials are your strongest proof, that tells you to invest in generating measured outcomes.
+- Deploying low-confidence proof without caveats — implied proof stated as direct proof is a credibility trap.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Proof inventory: each point rated, mapped to claims, with deployment recommendations.
+- User language bank: verbatim phrases ready for copy use.
+- Gap map: claims without proof, ranked by urgency.
+- Next proof to generate: the single measurement or testimonial that would unlock the most value.
+- Channel deployment plan: where each proof point should appear.
 
 ## Example invocation
 - Slash: `/att_proof_mining <task>`
-- Natural language: "Use proof Mining to extract credible proof points, testimonials, wins, and user language from messy source material."
-- Example: "Build an attention asset that feels specific, credible, and worth sharing."
-- Example: "Turn this product reality into a sharper story, launch angle, or distribution plan."
-- Often paired with: `att_message_house`, `att_launch_plan`
+- Natural language: "Mine proof from these support tickets and reviews."
+- Example: "I have 200 support emails — find the proof points I can use on my landing page."
+- Example: "Extract the strongest testimonials and user language from this chat log."
+- Often paired with: `att_message_house`, `att_launch_plan`, `att_thread_writer`
 
 ## Quality bar
-- The best proof sounds real because it is real.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+- Every proof claim is traceable to a specific source: customer name, data point, or verifiable event.
+- At least 3 proof tiers represented (measured outcome, testimonial, social proof).
+- No proof claim is fabricated or exaggerated — if you cannot verify it, label it "unverified" and don't deploy it.
+- The strongest proof maps to the biggest objection in the positioning.
+- User language captures real phrasing, not marketing-speak paraphrasing.
+- Gaps are explicitly named: "We claim X but have no proof for it."
+
+## Related workflows
+- Content system: `att_message_house` → `att_content_calendar` → `att_proof_mining` → `att_thread_writer`
+- Launch sequence: `att_launch_plan` → `att_proof_mining` → `att_social_proof_pack`
+- Proof deployment: `att_proof_mining` → `att_case_study_builder` → `att_social_proof_pack`
+- Proof generation: `prod_experiment_design` → `data_experiment_readout` → `att_proof_mining`

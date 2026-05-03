@@ -2,55 +2,45 @@
 name: core_route_request
 description: "Classify the task, choose the right specialist path, and avoid premature action."
 user-invocable: false
-disable-model-invocation: false
+metadata: {"openclaw":{"emoji":"🧭"}}
 ---
-
-
-# Core Route Request
 
 ## Purpose
 - Classify the task, choose the right specialist path, and avoid premature action.
-- This is a **core specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is a **core specialist** for OpenClaw operators who need a result that can survive review, handoff, or execution.
 
 ## Use when
 - Use at the start of any non-trivial request to decide whether the work is research, product, engineering, growth, operations, or mixed.
 - The main bottleneck is best solved through core work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use when the user asks for a tiny one-step action that is already obvious and low risk.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
 - User objective, scope boundary, deadline, and success condition.
 - Known constraints, approvals, and any actions that must stay reversible.
 - The smallest set of files, notes, tools, or prior decisions that affect the next move.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
 
 ## Operating rules
 - Resolve the job before optimizing the style.
 - Prefer the smallest sufficient path instead of loading many specialists.
 - When the request mixes multiple domains, sequence them instead of blending them into one vague response.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
 
+- Before planning, audit the current state. Plans built on stale assumptions are worse than no plan.
+- Prefer the smallest sufficient action. Overplanning is procrastination with a Gantt chart.
+- Name the decision, the decider, and the deadline. Decisions without owners and deadlines are wishes.
+- Every plan must state what would cause it to change. Rigid plans break; plans with exit criteria adapt.
+- Distinguish between reversible and irreversible decisions. Spend 10x more time on irreversible ones and 10x less on reversible ones.
 ## Claude Code tool pattern
 - Start by reading the local context that changes the decision instead of front-loading every file.
 - Use search/read to map the problem first; only edit or execute after the plan and blast radius are clear.
 - Leave a compact reasoning trail so later skills can pick up without repeating discovery work.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
 
 ## Expanded workflow
 1. Classify the request into one primary domain and any secondary domains.
 2. State the working objective, constraints, and missing evidence.
 3. Pick the next best specialist skill or a minimal direct action path.
 4. If risk is non-trivial, invoke the risk gate before proceeding.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
-
 ## Output contract
 - Task classification
 - Primary objective
@@ -63,12 +53,12 @@ disable-model-invocation: false
 - Planning too much after the next action is already obvious.
 - Skipping routing and forcing the wrong specialist to own the work.
 - Producing ceremony instead of a decision-ready next step.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+
+- Routing decision: which specialist, why, and with what context.
+- Any request decomposition if multiple specialists needed.
+- Priority and deadline communicated.
 
 ## Example invocation
 - Primary use: internal or autonomous routing when the task pattern matches.
@@ -80,5 +70,10 @@ disable-model-invocation: false
 ## Quality bar
 - The route must reduce ambiguity, not add ceremony.
 - If the likely path is wrong, make the uncertainty explicit.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+- The next action is specific enough to start immediately without further clarification.
+- Assumptions are explicitly named, not hidden in the plan.
+- The plan states what would trigger a re-evaluation.
+- Someone else could execute the plan from the document alone.
+## Related workflows
+- Planning cycle: `core_plan_task` → `core_execute_safely` → `core_review_changes` → `core_verify_done`
+- Decision chain: `core_evidence_research` → `core_decision_record` → `core_handoff_summary`

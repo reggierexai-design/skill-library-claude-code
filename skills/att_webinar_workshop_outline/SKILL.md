@@ -2,82 +2,73 @@
 name: att_webinar_workshop_outline
 description: "Outline webinars and workshops that teach something useful while creating qualified attention for the project."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83d\udce3"}}
 ---
-
-
-# Webinar or Workshop Outline
 
 ## Purpose
 - Outline webinars and workshops that teach something useful while creating qualified attention for the project.
-- This is an **attention specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
 
 ## Use when
 - Use when planning a live workshop, webinar, demo session, or educational event tied to the project.
-- The main bottleneck is best solved through attention work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not turn a workshop into a disguised pitch with no teaching value.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Audience, offer, proof, timing, channel mix, and the action you want people to take.
-- Existing assets, customer language, constraints, and how bold or conservative the positioning can be.
-- Whether the goal is launch attention, ongoing demand, activation, conversion, or reputation building.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+
+- Topic and audience: what will be covered and who's attending?
+- Duration: 30 min, 60 min, or 90 min?
+- Format: lecture, demo, workshop (hands-on), panel, or Q&A-heavy?
+- Desired outcome: what should attendees know or do afterward?
+- Speaker expertise: what can the speaker credibly teach vs what needs guest support?
 
 ## Operating rules
 - Lead with a real problem and a useful takeaway.
 - Give the audience a reason to stay through the whole session.
 - Design the event so follow-up conversion feels natural, not forced.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
 
 ## Claude Code tool pattern
-- Ground messaging in real proof, user language, and the current product truth before polishing copy.
-- Read existing site copy, launch assets, notes, or research so the new output fits the system instead of floating beside it.
-- When external facts or competitors matter, verify them before using them in public-facing content.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- Use `WebFetch` to research competitor content and current platform conventions.
+- Read existing site copy, product pages, and proof assets before drafting so output fits the real product truth.
+- When external claims appear, verify before publishing with `safe_external_claims`.
+- After drafting, run `att_proof_mining` to verify every claim has backing.
 
 ## Expanded workflow
 1. Choose the audience and session promise.
 2. Map the teaching arc and key examples.
 3. Add interaction points and follow-up calls to action.
 4. Prepare derivative assets for replay, clips, and email.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
-
 ## Output contract
 - Session promise
 - Outline
 - Interactive elements
 - Follow-up asset plan
-- Channel-ready draft or plan with hook, proof, CTA, and sequencing.
-- Audience assumptions, risks, and the missing proof that would strengthen the asset.
-
 ## Failure modes to avoid
-- Writing generic hype that is not anchored in proof or audience tension.
-- Creating channel content before the narrative, hook, or CTA is actually sharp.
-- Confusing attention with trust; the output should attract and hold scrutiny.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+
+- No interaction for 60 minutes — attention drops after 10 minutes of passive content. Build in questions, polls, or exercises every 10-15 minutes.
+- Covering too much — a webinar that tries to teach 10 things teaches nothing well.
+- All theory, no practice — attendees need to see or do something, not just hear about it.
+- No follow-up plan — the webinar ends and attendees disappear. The real value is in the post-event nurture.
+- Over-relying on slides — demos, live exercises, and visual storytelling outperform bullet-heavy slides.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+
+- Provide the full outline with timing per section.
+- List interaction points (polls, exercises, Q&A) with when they happen.
+- Flag any technical requirements (screen share, breakout rooms, polling tool).
+- Note the follow-up email sequence plan.
 
 ## Example invocation
 - Slash: `/att_webinar_workshop_outline <task>`
 - Natural language: "Use webinar or Workshop Outline to outline webinars and workshops that teach something useful while creating qualified attention for the project."
-- Example: "Build an attention asset that feels specific, credible, and worth sharing."
-- Example: "Turn this product reality into a sharper story, launch angle, or distribution plan."
+- Example: "Outline a 60-minute workshop on building an AI workforce as a solo founder."
+- Example: "Design a 30-min webinar that teaches one useful thing and naturally leads to product interest."
 - Often paired with: `att_message_house`, `att_launch_plan`, `att_proof_mining`
 
 ## Quality bar
 - A strong workshop outline creates value during the event and attention afterward.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+
+## Related workflows
+- Content system: `att_message_house` → `att_content_calendar` → `att_content_repurposing`
+- Launch sequence: `att_launch_plan` → `att_proof_mining` → `att_thread_writer`
+- Proof deployment: `att_proof_mining` → `att_case_study_builder` → `att_social_proof_pack`

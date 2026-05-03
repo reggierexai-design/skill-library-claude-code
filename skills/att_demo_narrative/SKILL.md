@@ -2,82 +2,72 @@
 name: att_demo_narrative
 description: "Turn a product demo into a story with stakes, payoff, and memorable product proof."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83d\udce3"}}
 ---
-
-
-# Demo Narrative
 
 ## Purpose
 - Turn a product demo into a story with stakes, payoff, and memorable product proof.
-- This is an **attention specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
 
 ## Use when
 - Use for launch demos, sales demos, recorded walkthroughs, or homepage product storytelling.
-- The main bottleneck is best solved through attention work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use when the product flow itself is still too broken to demonstrate credibly.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Audience, offer, proof, timing, channel mix, and the action you want people to take.
-- Existing assets, customer language, constraints, and how bold or conservative the positioning can be.
-- Whether the goal is launch attention, ongoing demand, activation, conversion, or reputation building.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- The demo flow: what product capability to show, in what order, toward what conclusion.
+- Audience context: technical buyers, business buyers, or mixed? What do they already believe?
+- The hook: what tension or problem does the demo resolve?
+- The proof moment: where in the demo does the product prove its value?
+- Objection context: what are buyers skeptical about before seeing the demo?
 
 ## Operating rules
 - A demo is a story, not a screen recording.
 - Show the pain, the turning point, and the payoff.
 - Pick the smallest path that proves the product's value.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
 
 ## Claude Code tool pattern
-- Ground messaging in real proof, user language, and the current product truth before polishing copy.
-- Read existing site copy, launch assets, notes, or research so the new output fits the system instead of floating beside it.
-- When external facts or competitors matter, verify them before using them in public-facing content.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- Use `WebFetch` to research competitor content and current platform conventions.
+- Read existing site copy, product pages, and proof assets before drafting so output fits the real product truth.
+- When external claims appear, verify before publishing with `safe_external_claims`.
+- After drafting, run `att_proof_mining` to verify every claim has backing.
 
 ## Expanded workflow
 1. Choose the audience and demo objective.
 2. Select the core flow and proof moments.
 3. Write the narrative beats and transitions.
 4. Return a demo script or storyboard.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
-
 ## Output contract
 - Audience and objective
 - Narrative beats
 - Proof moments
 - Close and next step
-- Channel-ready draft or plan with hook, proof, CTA, and sequencing.
-- Audience assumptions, risks, and the missing proof that would strengthen the asset.
-
 ## Failure modes to avoid
-- Writing generic hype that is not anchored in proof or audience tension.
-- Creating channel content before the narrative, hook, or CTA is actually sharp.
-- Confusing attention with trust; the output should attract and hold scrutiny.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Feature tours disguised as demos — showing everything, telling nothing.
+- No before state — jumping to the solution without establishing the problem.
+- Over-rehearsed to the point of feeling scripted; under-rehearsed to the point of breaking.
+- No failure recovery — when the demo breaks, the narrative dies too.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Provide the demo script and flow with timing per section.
+- Name the failure recovery plan and the backup narrative.
+- Flag any product capabilities that need to be working reliably before the demo can be given live.
 
 ## Example invocation
 - Slash: `/att_demo_narrative <task>`
 - Natural language: "Use demo Narrative to turn a product demo into a story with stakes, payoff, and memorable product proof."
-- Example: "Build an attention asset that feels specific, credible, and worth sharing."
-- Example: "Turn this product reality into a sharper story, launch angle, or distribution plan."
+- Example: "Turn this product walkthrough into a 5-minute demo with a story arc."
+- Example: "I am demoing at a conference. Script a narrative that handles the top 3 objections live."
 - Often paired with: `att_message_house`, `att_launch_plan`, `att_proof_mining`
 
 ## Quality bar
-- A good demo makes the product feel obvious and necessary.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+
+- The demo tells one clear story with problem, mechanism, and result.
+- A viewer can summarize the demo in one sentence afterward.
+- The demo has a failure recovery plan.
+- Both full (5-8 min) and short (2-3 min) versions available.
+
+## Related workflows
+- Content system: `att_message_house` → `att_content_calendar` → `att_content_repurposing`
+- Launch sequence: `att_launch_plan` → `att_proof_mining` → `att_thread_writer`
+- Proof deployment: `att_proof_mining` → `att_case_study_builder` → `att_social_proof_pack`

@@ -1,61 +1,50 @@
----
+﻿---
 name: qa_regression_sweep
 description: "Define a fast regression sweep around a change so adjacent breakage is caught before release."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83e\uddea"}}
 ---
-
-
-# QA Regression Sweep
 
 ## Purpose
 - Define a fast regression sweep around a change so adjacent breakage is caught before release.
-- This is a **quality specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is a **quality specialist** for OpenClaw operators who need a result that can survive review, handoff, or execution.
 
 ## Use when
 - Use after a fix or change that might affect nearby flows, permissions, data, or UI states.
-- The main bottleneck is best solved through quality work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use when no surrounding behavior could plausibly be affected.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
 - Feature, build, environment matrix, acceptance criteria, and the highest-risk user flows.
 - Known regressions, supported platforms, recent changes, and release timing pressure.
 - Whether the task needs a test plan, smoke sweep, bug report, or exploratory charter.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
 
 ## Operating rules
-- Work from evidence in the workspace, the prompt, or verified sources.
-- Keep the output decision-oriented rather than bloated.
-- Name assumptions, risks, and unresolved questions explicitly.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- Focus on what changed AND what's connected. Bugs hide in integration points.
+- Risk-prioritize: high-impact deep, low-impact smoke.
+- Don't skip regression for 'small changes.'
+- Document any skipped areas with risk acceptance.
 
+- Test the risk, not the coverage. 80% of bugs come from 20% of the code. Focus testing where failures hurt most.
+- Distinguish between testing that the feature works and testing that nothing else broke. Both matter.
+- Every test case should have an explicit pass/fail criterion. Vague assertions produce vague confidence.
+- Automate regression tests. Manual regression testing is slow, error-prone, and demoralizing.
+- Test the edges and error paths, not just the happy path. Users will find the error paths even if testers do not.
 ## Claude Code tool pattern
 - Read the intended behavior, recent changes, and bug history before defining tests.
 - Prioritize risk and user impact over exhaustive but low-yield test volume.
 - Capture defects and checks in a form engineering and release owners can act on quickly.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
 
 ## Expanded workflow
-1. Define the exact slice of work in scope.
-2. Gather the minimum evidence needed to reason safely.
-3. Produce the plan, review, or artifact that best fits the task.
-4. Check the output for gaps, regressions, or overclaiming.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
+1. Analyze release scope: what changed and what's connected.
+2. Map changes to risk areas: high (deep), medium (focused), low (smoke).
+3. Execute automated regression suite first.
+4. Execute manual regression for gaps and high-risk integrations.
+5. Document skipped areas with risk rationale.
+6. Report: pass/fail by area, issues found, risk gaps.
 
 ## Output contract
-- Scope
-- Key findings or plan
-- Risks and assumptions
-- Recommended next actions
 - Risk-based test artifact with clear pass or fail criteria.
 - Coverage gaps, release risk, and the most important next validation step.
 
@@ -63,12 +52,11 @@ disable-model-invocation: true
 - Treating test coverage as a substitute for risk thinking.
 - Writing bugs with no reproduction clarity, impact framing, or environment details.
 - Running a release check that never states what would block the release.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Regression sweep results: areas tested, issues found, severity, pass/fail by area.
+- Risk assessment for any skipped areas.
+- Recommended additional testing based on findings.
 
 ## Example invocation
 - Slash: `/qa_regression_sweep <task>`
@@ -78,6 +66,10 @@ disable-model-invocation: true
 - Often paired with: `qa_risk_based_testing`, `qa_release_smoke_test`, `eng_release_readiness`
 
 ## Quality bar
-- The result should be specific enough that another operator could act on it without guessing.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+## Related workflows
+- Test planning: `qa_risk_based_testing` â†’ `qa_acceptance_test_plan` â†’ `qa_test_case_matrix`
+- Release check: `qa_release_smoke_test` â†’ `qa_regression_sweep` â†’ `eng_release_readiness`
+- Test cases cover the highest-risk areas first, not just the easiest to test.
+- Pass/fail criteria are explicit and unambiguous.
+- Regression tests are automated.
+- Edge cases and error paths have explicit test coverage.

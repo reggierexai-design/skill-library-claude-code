@@ -1,83 +1,66 @@
----
+﻿---
 name: att_creator_partnerships
 description: "Design creator or expert partnerships with fit, proof, and mutual value."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83c\udfa5"}}
 ---
-
-
-# Attention Creator Partnerships
 
 ## Purpose
 - Design creator or expert partnerships with fit, proof, and mutual value.
-- This is an **attention specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
 
 ## Use when
 - Use when outside voices could credibly expand reach, trust, or category education.
-- The main bottleneck is best solved through attention work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use when the product has no fit for external voices or no support for follow-through.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Audience, offer, proof, timing, channel mix, and the action you want people to take.
-- Existing assets, customer language, constraints, and how bold or conservative the positioning can be.
-- Whether the goal is launch attention, ongoing demand, activation, conversion, or reputation building.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- Target creators: who in the niche has audience overlap with your buyers?
+- Your offer to the creator: what value do you bring (affiliate revenue, early access, co-creation, exposure)?
+- Creator constraints: platform, audience size, content style, brand safety rules.
+- Your goals: awareness, conversions, content co-creation, or social proof.
+- Budget: any financial commitment (affiliate rates, sponsorships, product gifts).
 
 ## Operating rules
-- Work from evidence in the workspace, the prompt, or verified sources.
-- Keep the output decision-oriented rather than bloated.
-- Name assumptions, risks, and unresolved questions explicitly.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- Partnership value must flow both ways. If you're only asking for promotion, you're buying ads.
+- Match creator size to your stage. Micro-creators (1K-10K engaged followers) often convert better.
+- Design the collaboration, not just the ask. Co-created content outperforms sponsored mentions.
+- Start with 2-3 pilots before scaling. Test the format, measure conversion, then expand.
 
 ## Claude Code tool pattern
-- Ground messaging in real proof, user language, and the current product truth before polishing copy.
-- Read existing site copy, launch assets, notes, or research so the new output fits the system instead of floating beside it.
-- When external facts or competitors matter, verify them before using them in public-facing content.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- Use `WebFetch` to research competitor content and current platform conventions.
+- Read existing site copy, product pages, and proof assets before drafting so output fits the real product truth.
+- When external claims appear, verify before publishing with `safe_external_claims`.
+- After drafting, run `att_proof_mining` to verify every claim has backing.
 
 ## Expanded workflow
-1. Define the exact slice of work in scope.
-2. Gather the minimum evidence needed to reason safely.
-3. Produce the plan, review, or artifact that best fits the task.
-4. Check the output for gaps, regressions, or overclaiming.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
+1. Define what you need: awareness, conversions, or content.
+2. Research creators: audience overlap, engagement rate (not follower count), content quality, past partnerships.
+3. Design the value exchange: what the creator gets, what you get, what the audience gets.
+4. Draft the partnership brief: deliverables, timeline, creative freedom, measurement plan.
+5. Launch 2-3 pilots, measure results, then decide whether to scale.
 
 ## Output contract
-- Scope
-- Key findings or plan
-- Risks and assumptions
-- Recommended next actions
-- Channel-ready draft or plan with hook, proof, CTA, and sequencing.
-- Audience assumptions, risks, and the missing proof that would strengthen the asset.
-
 ## Failure modes to avoid
-- Writing generic hype that is not anchored in proof or audience tension.
-- Creating channel content before the narrative, hook, or CTA is actually sharp.
-- Confusing attention with trust; the output should attract and hold scrutiny.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Paying for mentions without creative involvement â€” audiences detect inauthentic sponsorships.
+- Choosing creators by follower count instead of engagement rate and audience overlap.
+- Over-constraining the creative brief â€” the creator knows their audience better than you do.
+- No measurement plan â€” can't attribute results means can't improve.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- State the partnership brief: creator, deliverables, timeline, measurement plan.
+- Flag any legal considerations (FTC disclosure, contracts) that need `legal_terms_privacy_basics`.
+- Note the measurement schedule: when to check results and whether to continue.
 
 ## Example invocation
 - Slash: `/att_creator_partnerships <task>`
 - Natural language: "Use attention Creator Partnerships to design creator or expert partnerships with fit, proof, and mutual value."
-- Example: "Build an attention asset that feels specific, credible, and worth sharing."
-- Example: "Turn this product reality into a sharper story, launch angle, or distribution plan."
+- Example: "Find 5 micro-creators in the maker studio niche and design a partnership brief for each."
+- Example: "I have no budget but early access to give. Design a creator partnership that works."
 - Often paired with: `att_message_house`, `att_launch_plan`, `att_proof_mining`
 
 ## Quality bar
-- The result should be specific enough that another operator could act on it without guessing.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+## Related workflows
+- Content system: `att_message_house` â†’ `att_content_calendar` â†’ `att_content_repurposing`
+- Launch sequence: `att_launch_plan` â†’ `att_proof_mining` â†’ `att_thread_writer`
+- Proof deployment: `att_proof_mining` â†’ `att_case_study_builder` â†’ `att_social_proof_pack`

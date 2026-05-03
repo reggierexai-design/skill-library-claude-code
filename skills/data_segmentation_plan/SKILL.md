@@ -1,61 +1,51 @@
----
+﻿---
 name: data_segmentation_plan
 description: "Plan how to segment users, accounts, or events so analysis reveals actionable differences."
 user-invocable: true
-disable-model-invocation: false
+metadata: {"openclaw":{"emoji":"\ud83e\udde9"}}
 ---
-
-
-# Data Segmentation Plan
 
 ## Purpose
 - Plan how to segment users, accounts, or events so analysis reveals actionable differences.
-- This is a **data specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is a **data specialist** for OpenClaw operators who need a result that can survive review, handoff, or execution.
 
 ## Use when
 - Use when aggregate metrics hide differences across audience, plan, cohort, or behavior.
-- The main bottleneck is best solved through data work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use when the question is already answered by a single obvious slice.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
 - Business question, metric definitions, time windows, segments, and source systems involved.
 - Known anomalies, dashboard complaints, experiment context, or instrumentation limits.
 - What level of confidence is needed before a decision is made from the analysis.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
 
 ## Operating rules
-- Work from evidence in the workspace, the prompt, or verified sources.
-- Keep the output decision-oriented rather than bloated.
-- Name assumptions, risks, and unresolved questions explicitly.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- Segments must be actionable. If you can't treat a segment differently, it's not a segment â€” it's a label.
+- Start with behavioral segments, not demographic ones. What people do is more predictive than who they are.
+- Segment size matters. Segments too small to analyze or too small to target aren't useful.
+- Validate segments with holdout tests. Do segmented campaigns actually outperform unsegmented ones?
 
+- Check data quality before analyzing. Dirty data produces dirty insights. Verify null counts, outlier ranges, and schema drift first.
+- Distinguish between correlation and causation in every finding. A spike that coincides with a launch is not caused by the launch without a controlled comparison.
+- Present confidence intervals, not just point estimates. An average without variance is a single number pretending to be information.
+- Every metric needs a clear definition, a data source, and a known limitation.
+- Prefer simple analyses that answer the question over complex analyses that impress but confuse.
 ## Claude Code tool pattern
 - Lock definitions before comparing numbers; many data disagreements are really definition disagreements.
 - Inspect lineage, joins, filters, and freshness assumptions before trusting a chart or query output.
 - Return the smallest analysis or instrumentation change that increases confidence in the decision.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
 
 ## Expanded workflow
-1. Define the exact slice of work in scope.
-2. Gather the minimum evidence needed to reason safely.
-3. Produce the plan, review, or artifact that best fits the task.
-4. Check the output for gaps, regressions, or overclaiming.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
+1. Define the segmentation goal: what decision will segments inform?
+2. Choose segmentation approach: behavioral, demographic, psychographic, or value-based.
+3. Identify the data signals available for segmentation.
+4. Build initial segments and measure their distinctiveness.
+5. Validate: do segments differ meaningfully in behavior or outcomes?
+6. Size each segment: are they large enough to act on?
+7. Document segment profiles with actionable characteristics.
 
 ## Output contract
-- Scope
-- Key findings or plan
-- Risks and assumptions
-- Recommended next actions
 - Decision-oriented analysis plan, readout, or instrumentation recommendation.
 - Definition notes, caveats, and the next check needed to trust the result.
 
@@ -63,12 +53,11 @@ disable-model-invocation: false
 - Analyzing a metric whose definition is still moving.
 - Explaining a number shift without ruling out pipeline or instrumentation breakage.
 - Returning dashboards or queries that look busy but do not answer the actual question.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Segmentation plan: segments defined, criteria, data sources, analysis methods.
+- Validation approach for segment quality.
+- Recommended actions per segment.
 
 ## Example invocation
 - Slash: `/data_segmentation_plan <task>`
@@ -78,6 +67,10 @@ disable-model-invocation: false
 - Often paired with: `data_analysis_plan`, `data_metric_definition`, `data_anomaly_triage`
 
 ## Quality bar
-- The result should be specific enough that another operator could act on it without guessing.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+## Related workflows
+- Analytics build: `data_analysis_plan` â†’ `data_metric_definition` â†’ `data_dashboard_brief`
+- Data quality: `data_quality_checks` â†’ `data_pipeline_triage` â†’ `data_anomaly_triage`
+- Data quality checks are run before any analysis is presented.
+- Findings distinguish correlation from causation.
+- Confidence intervals or variance measures accompany all point estimates.
+- Every metric has a definition, source, and known limitation.

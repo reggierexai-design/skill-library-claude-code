@@ -2,55 +2,47 @@
 name: eng_issue_repro_harness
 description: "Build the smallest reproducible harness for a bug so fixes can be tested without guesswork."
 user-invocable: true
-disable-model-invocation: false
+metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
-
-
-# Issue Repro Harness
 
 ## Purpose
 - Build the smallest reproducible harness for a bug so fixes can be tested without guesswork.
-- This is an **engineering specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
 
 ## Use when
 - Use when a bug is intermittent, environment-dependent, or hard to reason about from reports alone.
-- The main bottleneck is best solved through engineering work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not build a giant debug scaffold when a tiny focused repro will do.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Target system, repo area, environment, and the concrete failure, change, or performance goal.
-- Relevant files, logs, tests, stack traces, commands, and deployment constraints.
-- Definition of done: fix, refactor, review, migration plan, or release-safety decision.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+
+- Bug description: expected vs observed behavior, conditions.
+- Environment details: platform, version, config, dependencies.
+- Frequency: always reproducible, intermittent, or conditional?
+- Related test cases: any existing tests that exercise the same area.
+- Code area: which module, function, or component is likely involved?
 
 ## Operating rules
 - A repro should isolate the failure, not mirror the whole product.
 - Keep inputs, state, and assertions explicit.
 - Once the issue is reproducible, use the harness to verify the fix.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
 
+- Read the code and the error before proposing a fix. Diagnose first, treat second.
+- Prefer the minimal change that solves the problem. Every line added is a line that can break.
+- Test the fix, test the surrounding area, test the edge cases. A fix that works for the happy path only is not a fix.
+- Document why, not just what. Future engineers need to understand the reasoning, not just see the change.
+- If the fix takes longer than 30 minutes, stop and reconsider the approach. Complex fixes usually indicate the wrong diagnosis.
 ## Claude Code tool pattern
-- Scout the repo before editing; read the nearest implementation, tests, and docs that define current behavior.
-- Use minimal diffs, bounded commands, and targeted verification instead of broad speculative changes.
-- When code is touched, explain what changed, why it is safe, and how it was verified.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- Use `Bash` to run diagnostic commands, read logs, and check system state.
+- Use `Read` to inspect source files, configs, and error output directly.
+- Use `Edit` for targeted code changes. Prefer `eng_minimal_patch` scope discipline.
+- After changes, use `eng_test_strategy` to verify the fix works and nothing else broke.
 
 ## Expanded workflow
 1. Define the failure signal precisely.
 2. Strip the problem down to the smallest reproducible setup.
 3. Confirm the harness reproduces the bug.
 4. Use it to verify the patch and decide whether to keep it.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
-
 ## Output contract
 - Failure signal
 - Minimal setup
@@ -60,15 +52,18 @@ disable-model-invocation: false
 - Verification evidence, remaining risks, and rollback or next-step notes when relevant.
 
 ## Failure modes to avoid
-- Patching symptoms without proving the cause or expected behavior.
-- Bundling unrelated cleanup into a debugging or release task.
-- Stopping after the code compiles without checking the user-visible outcome.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+
+- Writing a harness that proves the happy path — you need the failure path.
+- Over-engineering the harness — a 10-line test beats a 100-line framework for reproduction.
+- Making the harness dependent on specific test data that doesn't represent real conditions.
+- No assertion on the actual failure — the test must fail for the right reason.
+- Ignoring timing and state dependencies — race conditions need realistic timing.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+
+- Reproduction harness with clear setup, execution, and assertion.
+- Instructions for running the harness.
+- Plan to promote the harness to a permanent regression test post-fix.
 
 ## Example invocation
 - Slash: `/eng_issue_repro_harness <task>`
@@ -79,5 +74,10 @@ disable-model-invocation: false
 
 ## Quality bar
 - A repro harness is successful when it turns a vague bug into a controlled experiment.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+- The fix is the smallest change that resolves the issue without introducing new problems.
+- Root cause is identified and documented, not just the symptom.
+- Tests cover the fix, the regression, and at least one edge case.
+- The change is reviewable in under 10 minutes.
+## Related workflows
+- Debug chain: `eng_bug_triage` → `eng_debug_systematically` → `eng_minimal_patch` → `eng_test_strategy`
+- Release safety: `eng_release_readiness` → `eng_code_review_pass` → `eng_feature_flag_rollout`

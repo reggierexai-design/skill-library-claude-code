@@ -1,74 +1,62 @@
----
+﻿---
 name: sec_dependency_audit
 description: "Review dependency trust, maintenance posture, and supply-chain risk before adoption or upgrade."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83d\udce6"}}
 ---
-
-
-# Security Dependency Audit
 
 ## Purpose
 - Review dependency trust, maintenance posture, and supply-chain risk before adoption or upgrade.
-- This is a **security specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is a **security specialist** for OpenClaw operators who need a result that can survive review, handoff, or execution.
 
 ## Use when
 - Use before adding dependencies, SDKs, plugins, or external services to a stack.
-- The main bottleneck is best solved through security work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use as a vulnerability-scanner replacement when scanner output already exists.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Asset surface, trust boundaries, auth paths, data sensitivity, and exposure assumptions.
-- Relevant architecture, permissions, logging behavior, third-party dependencies, and recent changes.
-- Whether the task is a review, audit, threat model, disclosure note, or remediation prioritization.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- Dependency inventory: direct and transitive, with versions and licenses.
+- Vulnerability database: known CVEs for current versions.
+- Supply chain risk: maintenance status, maintainer trust.
+- License compliance: conflicts with distribution model?
 
 ## Operating rules
-- Work from evidence in the workspace, the prompt, or verified sources.
-- Keep the output decision-oriented rather than bloated.
-- Name assumptions, risks, and unresolved questions explicitly.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- Audit transitive dependencies, not just direct.
+- License compliance is as important as vulnerability scanning.
+- Popular does not equal maintained. Check activity, not stars.
+- Automated scanning on every PR beats manual auditing.
 
+- Use STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege) as the threat enumeration framework unless the context demands a different model.
+- Rate each threat by likelihood (1-5) x impact (1-5). Threats scoring 15+ need mitigations before ship. Threats scoring 8-14 need accepted-risk documentation. Below 8 is monitored.
+- Every threat model must name the trust boundaries explicitly: where does untrusted input cross into a trusted zone? That boundary is the highest-value attack surface.
+- Distinguish between threats to confidentiality, integrity, and availability. A threat to one is not necessarily a threat to the others.
+- Threat models are attackergoal-first, not feature-first. Start from what an attacker wants to achieve, then trace backwards to how they could do it.
 ## Claude Code tool pattern
 - Read the real data flow, auth model, config, and dependency surface before naming security posture.
-- Prioritize exploitability, impact, and exposure over abstract checklist compliance.
-- Return remediation advice that fits the actual system and ownership model.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
 
 ## Expanded workflow
-1. Define the exact slice of work in scope.
-2. Gather the minimum evidence needed to reason safely.
-3. Produce the plan, review, or artifact that best fits the task.
-4. Check the output for gaps, regressions, or overclaiming.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
+1. Generate the full dependency tree (direct + transitive).
+2. Run automated vulnerability scanning.
+3. Check license compliance for every dependency.
+4. Assess maintenance health: last release, issue response, maintainer count.
+5. Prioritize: critical CVEs first, license conflicts second, unmaintained third.
+6. Set up automated scanning for ongoing monitoring.
 
 ## Output contract
-- Scope
-- Key findings or plan
-- Risks and assumptions
-- Recommended next actions
 - Security review or model with risk ranking, exposure logic, and remediation direction.
 - Assumptions, open questions, and where human security review is still required.
 
 ## Failure modes to avoid
-- Calling something secure because the right buzzwords are present.
-- Treating every finding as equally urgent or equally exploitable.
-- Writing findings with no threat story, impact path, or remediation owner.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Ignoring transitive dependencies â€” CVEs are often two levels deep.
+- No license audit â€” GPL in proprietary code is legal risk.
+- Assuming popular packages are maintained.
+- One-time audit without ongoing monitoring.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Dependency audit: vulnerabilities, license issues, unmaintained packages, remediation plan.
+- Priority-ordered upgrade/replace actions.
+- Ongoing monitoring recommendations.
 
 ## Example invocation
 - Slash: `/sec_dependency_audit <task>`
@@ -78,6 +66,9 @@ disable-model-invocation: true
 - Often paired with: `sec_threat_model`, `sec_appsec_review`, `safe_high_impact_changes`
 
 ## Quality bar
-- The result should be specific enough that another operator could act on it without guessing.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+## Related workflows
+- Security review: `sec_threat_model` â†’ `sec_appsec_review` â†’ `sec_data_flow_review`
+- Every high-likelihood threat has a named mitigation or an explicitly accepted risk with rationale.
+- Trust boundaries are diagrammed or clearly described.
+- At least one insider threat scenario is included.
+- The model is specific enough that an engineer could implement mitigations without guessing.

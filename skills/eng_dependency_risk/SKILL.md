@@ -2,55 +2,46 @@
 name: eng_dependency_risk
 description: "Evaluate whether a new package, SDK, or external service is worth its complexity and trust cost."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
-
-
-# Dependency Risk
 
 ## Purpose
 - Evaluate whether a new package, SDK, or external service is worth its complexity and trust cost.
-- This is an **engineering specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
 
 ## Use when
 - Use before adding major dependencies or when a build already feels fragile or over-composed.
-- The main bottleneck is best solved through engineering work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use for routine patch upgrades with low surface area and low risk.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Target system, repo area, environment, and the concrete failure, change, or performance goal.
-- Relevant files, logs, tests, stack traces, commands, and deployment constraints.
-- Definition of done: fix, refactor, review, migration plan, or release-safety decision.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- Dependency list: direct and transitive dependencies with versions.
+- Vulnerability database: known CVEs for current versions.
+- License inventory: license type for each dependency.
+- Maintenance status: last release, commit frequency, open issues, maintainer count.
+- Dependency depth: how many levels of transitive dependencies?
 
 ## Operating rules
 - Every dependency adds operational and security weight.
 - Prefer fewer, well-understood pieces over fashionable stacks.
 - Measure adoption value against lock-in, maintenance, and risk.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
 
+- Read the code and the error before proposing a fix. Diagnose first, treat second.
+- Prefer the minimal change that solves the problem. Every line added is a line that can break.
+- Test the fix, test the surrounding area, test the edge cases. A fix that works for the happy path only is not a fix.
+- Document why, not just what. Future engineers need to understand the reasoning, not just see the change.
+- If the fix takes longer than 30 minutes, stop and reconsider the approach. Complex fixes usually indicate the wrong diagnosis.
 ## Claude Code tool pattern
-- Scout the repo before editing; read the nearest implementation, tests, and docs that define current behavior.
-- Use minimal diffs, bounded commands, and targeted verification instead of broad speculative changes.
-- When code is touched, explain what changed, why it is safe, and how it was verified.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
+- Use `Bash` to run diagnostic commands, read logs, and check system state.
+- Use `Read` to inspect source files, configs, and error output directly.
+- Use `Edit` for targeted code changes. Prefer `eng_minimal_patch` scope discipline.
+- After changes, use `eng_test_strategy` to verify the fix works and nothing else broke.
 
 ## Expanded workflow
 1. State the real problem the dependency would solve.
 2. Compare dependency, built-in, and lighter alternatives.
 3. Assess security, maintenance, and migration risk.
 4. Give a go, no-go, or defer recommendation.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
-
 ## Output contract
 - Problem statement
 - Options compared
@@ -60,15 +51,17 @@ disable-model-invocation: true
 - Verification evidence, remaining risks, and rollback or next-step notes when relevant.
 
 ## Failure modes to avoid
-- Patching symptoms without proving the cause or expected behavior.
-- Bundling unrelated cleanup into a debugging or release task.
-- Stopping after the code compiles without checking the user-visible outcome.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Ignoring transitive dependencies — the vulnerability is often two levels deep.
+- Upgrading without testing — major version bumps can break APIs silently.
+- No license audit — GPL dependencies in proprietary code are legal time bombs.
+- Assuming popular = maintained — popular packages can be abandoned.
+- Pinning without a refresh strategy — locked dependencies accumulate CVEs over time.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Dependency risk report: CVEs, license issues, unmaintained packages.
+- Recommended upgrades with version targets.
+- Flag any dependencies that need replacement (not just upgrade).
+- Note the dependency refresh cadence agreed on.
 
 ## Example invocation
 - Slash: `/eng_dependency_risk <task>`
@@ -78,6 +71,16 @@ disable-model-invocation: true
 - Often paired with: `eng_repo_onboarding`, `eng_minimal_patch`, `eng_test_strategy`
 
 ## Quality bar
-- The best dependency is often the one you never had to add.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+
+- All direct and transitive dependencies inventoried with versions.
+- Known CVEs flagged with severity and remediation path.
+- License audit complete — no legal conflicts.
+- Unmaintained dependencies flagged for replacement.
+- Dependency refresh cadence defined.
+- The fix is the smallest change that resolves the issue without introducing new problems.
+- Root cause is identified and documented, not just the symptom.
+- Tests cover the fix, the regression, and at least one edge case.
+- The change is reviewable in under 10 minutes.
+## Related workflows
+- Debug chain: `eng_bug_triage` → `eng_debug_systematically` → `eng_minimal_patch` → `eng_test_strategy`
+- Release safety: `eng_release_readiness` → `eng_code_review_pass` → `eng_feature_flag_rollout`

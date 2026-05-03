@@ -1,74 +1,63 @@
----
+﻿---
 name: sec_permission_audit
 description: "Audit roles, scopes, and permissions for least-privilege gaps and over-broad access."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83e\udeaa"}}
 ---
-
-
-# Security Permission Audit
 
 ## Purpose
 - Audit roles, scopes, and permissions for least-privilege gaps and over-broad access.
-- This is a **security specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is a **security specialist** for OpenClaw operators who need a result that can survive review, handoff, or execution.
 
 ## Use when
 - Use when a product has roles, scopes, admin actions, integration tokens, or shared workspaces.
-- The main bottleneck is best solved through security work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not use before the access model is visible in code, config, or docs.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
-- Asset surface, trust boundaries, auth paths, data sensitivity, and exposure assumptions.
-- Relevant architecture, permissions, logging behavior, third-party dependencies, and recent changes.
-- Whether the task is a review, audit, threat model, disclosure note, or remediation prioritization.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
+- Permission model: roles, permissions, assignment rules.
+- Current access state: who has what right now.
+- Least privilege policy: minimum access per role.
+- Orphaned accounts: any that should no longer have access?
 
 ## Operating rules
-- Work from evidence in the workspace, the prompt, or verified sources.
-- Keep the output decision-oriented rather than bloated.
-- Name assumptions, risks, and unresolved questions explicitly.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
+- Audit actual access, not just the permission model.
+- Check for privilege accumulation â€” role changes without permission cleanup.
+- Orphaned accounts are attack surface.
+- Automate access reviews â€” manual quarterly reviews miss 40%+.
 
+- Use STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege) as the threat enumeration framework unless the context demands a different model.
+- Rate each threat by likelihood (1-5) x impact (1-5). Threats scoring 15+ need mitigations before ship. Threats scoring 8-14 need accepted-risk documentation. Below 8 is monitored.
+- Every threat model must name the trust boundaries explicitly: where does untrusted input cross into a trusted zone? That boundary is the highest-value attack surface.
+- Distinguish between threats to confidentiality, integrity, and availability. A threat to one is not necessarily a threat to the others.
+- Threat models are attackergoal-first, not feature-first. Start from what an attacker wants to achieve, then trace backwards to how they could do it.
 ## Claude Code tool pattern
 - Read the real data flow, auth model, config, and dependency surface before naming security posture.
-- Prioritize exploitability, impact, and exposure over abstract checklist compliance.
-- Return remediation advice that fits the actual system and ownership model.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
 
 ## Expanded workflow
-1. Define the exact slice of work in scope.
-2. Gather the minimum evidence needed to reason safely.
-3. Produce the plan, review, or artifact that best fits the task.
-4. Check the output for gaps, regressions, or overclaiming.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
+1. Export current access state: who has what permissions.
+2. Compare actual access to least-privilege policy.
+3. Identify over-provisioned accounts.
+4. Find orphaned accounts: no owner, no recent activity.
+5. Check for privilege accumulation.
+6. Remediate: revoke excess, disable orphans.
+7. Set up automated access review cadence.
 
 ## Output contract
-- Scope
-- Key findings or plan
-- Risks and assumptions
-- Recommended next actions
 - Security review or model with risk ranking, exposure logic, and remediation direction.
 - Assumptions, open questions, and where human security review is still required.
 
 ## Failure modes to avoid
-- Calling something secure because the right buzzwords are present.
-- Treating every finding as equally urgent or equally exploitable.
-- Writing findings with no threat story, impact path, or remediation owner.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
+- Auditing the model but not the actual access assignments.
+- Ignoring privilege accumulation.
+- Leaving orphaned accounts active.
+- One-time audit without ongoing review.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Permission audit: roles, permissions, over-provisioning, least-violation findings, remediation.
+- Priority fixes for over-provisioned access.
+- Ongoing access review cadence recommendation.
 
 ## Example invocation
 - Slash: `/sec_permission_audit <task>`
@@ -78,6 +67,9 @@ disable-model-invocation: true
 - Often paired with: `sec_threat_model`, `sec_appsec_review`, `safe_high_impact_changes`
 
 ## Quality bar
-- The result should be specific enough that another operator could act on it without guessing.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+## Related workflows
+- Security review: `sec_threat_model` â†’ `sec_appsec_review` â†’ `sec_data_flow_review`
+- Every high-likelihood threat has a named mitigation or an explicitly accepted risk with rationale.
+- Trust boundaries are diagrammed or clearly described.
+- At least one insider threat scenario is included.
+- The model is specific enough that an engineer could implement mitigations without guessing.

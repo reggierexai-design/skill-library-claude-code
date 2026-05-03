@@ -2,55 +2,44 @@
 name: doc_quickstart_guide
 description: "Write a fast-start guide that gets a new user to first success with minimal friction."
 user-invocable: true
-disable-model-invocation: true
+metadata: {"openclaw":{"emoji":"\ud83d\ude80"}}
 ---
-
-
-# Quickstart Guide
 
 ## Purpose
 - Write a fast-start guide that gets a new user to first success with minimal friction.
-- This is a **documentation specialist** for Claude Code users who need a result that can survive review, handoff, or execution.
-- Prefer this skill when a structured operating pass will outperform a generic answer.
+- This is a **documentation specialist** for OpenClaw operators who need a result that can survive review, handoff, or execution.
 
 ## Use when
 - Use when a product or tool needs a clean first-run experience in documentation.
-- The main bottleneck is best solved through documentation work rather than generic brainstorming.
-- There is enough context to act, or the first useful move is to identify what is missing.
 
 ## Avoid when
 - Do not stuff a quickstart with every edge case or architecture detail.
-- Do not use it to add ceremony when a short direct answer would solve the task.
-- Stop and re-route if the task crosses into a higher-risk domain than this skill is meant to handle alone.
 
 ## Inputs to gather
 - Target reader, prerequisite knowledge, starting state, and desired success moment.
 - Existing docs, product behavior, known support pain points, and terms that must stay consistent.
 - Whether the output should optimize for fast start, troubleshooting, migration, or reference completeness.
-- Acceptance threshold: what would make the output ready for use, review, or handoff.
 
 ## Operating rules
 - Optimize for first success, not completeness.
 - State prerequisites up front.
 - Keep the happy path unbroken.
-- Separate facts, assumptions, and recommendations so the operator can see what is proven versus inferred.
-- Prefer the smallest sufficient move that improves clarity, decision quality, or execution momentum.
-- When context is stale or incomplete, name the gap instead of hiding it inside confident language.
 
+- Write for the reader who is frustrated and in a hurry, not the reader who has time and patience. Docs are searched, not read cover-to-cover.
+- Every doc needs a clear purpose statement: who is this for, what will they learn, what will they do after reading?
+- Code examples should be copy-pasteable and runnable. Broken code examples destroy trust in the entire document.
+- Structure for scanning: headers, bullets, short paragraphs. Wall-of-text documentation is unread documentation.
+- Docs need maintenance like code needs maintenance. Stale docs are worse than no docs because they actively mislead.
 ## Claude Code tool pattern
 - Read the source behavior, UI copy, API shape, or runbook reality before writing documentation.
 - Keep the happy path tight; move depth into links, reference sections, or follow-on docs.
 - Make docs observable: the reader should know what success, failure, and next steps look like.
-- Keep the workspace state legible: summarize touched files, consulted sources, and checks performed when they materially affect trust.
 
 ## Expanded workflow
 1. Define the target new user and the first success moment.
 2. List prerequisites and the shortest path.
 3. Write the steps, checks, and next links.
 4. Return a quickstart draft or outline.
-5. Check the draft against the original request and remove anything that does not change the outcome.
-6. End with the exact next action, follow-up check, or approval path.
-
 ## Output contract
 - Target reader
 - Prerequisites
@@ -63,12 +52,11 @@ disable-model-invocation: true
 - Writing docs from assumptions instead of the real behavior of the system.
 - Trying to solve onboarding, troubleshooting, and reference use cases in one page.
 - Hiding prerequisites, permissions, or environment assumptions until too late.
-- Declaring success before the output is usable by the next operator, owner, or decision-maker.
 
 ## Handoff cues
-- State current status, remaining blockers, and the smallest next move.
-- Name the files, pages, systems, or source material that another operator should read first.
-- Flag approvals, missing evidence, or live-system access that still require a human decision.
+- Quickstart guide: prerequisites, setup steps, first success milestone, next steps.
+- Time budget and difficulty level.
+- Troubleshooting section for common setup issues.
 
 ## Example invocation
 - Slash: `/doc_quickstart_guide <task>`
@@ -78,6 +66,14 @@ disable-model-invocation: true
 - Often paired with: `doc_troubleshooting_guide`, `eng_docs_for_change`
 
 ## Quality bar
-- A good quickstart gets a motivated user from zero to proof quickly.
-- The result should reduce ambiguity or risk, not merely add more words.
-- A good pass leaves a clear next action, owner, or verification step.
+
+- A new user can go from zero to first success in under 15 minutes.
+- Every step is verifiable: the user knows when they've done it right.
+- Prerequisites are listed upfront, not discovered halfway through.
+- The guide covers the happy path; troubleshooting handles the top 3 failure points.
+- A frustrated user can find the answer they need within 60 seconds.
+- Every code example is copy-pasteable and tested.
+- The document states its audience, purpose, and prerequisites upfront.
+- Content is structured for scanning, not sequential reading.
+## Related workflows
+- Docs system: `doc_information_architecture` → `doc_quickstart_guide` → `doc_troubleshooting_guide` → `doc_docs_feedback_loop`
