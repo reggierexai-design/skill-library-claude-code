@@ -2,7 +2,6 @@
 name: legal_privacy_policy
 description: "Draft or update a privacy policy that covers your actual data practices and meets regulatory requirements."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔐"}}
 ---
 
 # Privacy Policy

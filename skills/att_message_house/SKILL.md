@@ -1,4 +1,8 @@
---- name: att_message_house description: "Build a message hierarchy with one core promise, supporting pillars, proof, and objections handled." user-invocable: true disable-model-invocation: false metadata: {"openclaw":{"emoji":"\ud83c\udfe0"}} ---
+---
+name: att_message_house
+description: "Build a message hierarchy with one core promise, supporting pillars, proof, and objections handled."
+---
+
 # Message House
 
 ## Purpose

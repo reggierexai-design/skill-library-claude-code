@@ -2,7 +2,6 @@
 name: att_seo_page_brief
 description: "Design search-driven pages with intent, proof, structure, and conversion paths."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📣"}}
 ---
 
 ## Purpose

@@ -1,4 +1,8 @@
---- name: att_press_angles description: "Generate newsworthy framing angles that connect the project to real trends, tension, or stakes." user-invocable: true disable-model-invocation: true metadata: {"openclaw":{"emoji":"📰"}} ---
+---
+name: att_press_angles
+description: "Generate newsworthy framing angles that connect the project to real trends, tension, or stakes."
+---
+
 # Press Angles
 
 ## Purpose

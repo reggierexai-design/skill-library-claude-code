@@ -2,7 +2,6 @@
 name: prod_ui_copy_polish
 description: "Upgrade product copy so the interface feels clear, confident, trustworthy, and on-brand."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udce6"}}
 ---
 
 ## Purpose

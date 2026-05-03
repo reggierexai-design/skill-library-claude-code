@@ -1,8 +1,7 @@
-﻿---
+---
 name: sales_discovery_call_plan
 description: "Prepare a discovery call that surfaces pain, urgency, fit, and buying constraints."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\u260e\ufe0f"}}
 ---
 
 ## Purpose

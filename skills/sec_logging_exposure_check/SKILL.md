@@ -1,8 +1,7 @@
-﻿---
+---
 name: sec_logging_exposure_check
 description: "Check logs, traces, and telemetry for secrets, personal data, and unsafe diagnostic leakage."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\uddfe"}}
 ---
 
 ## Purpose

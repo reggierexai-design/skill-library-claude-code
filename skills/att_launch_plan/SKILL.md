@@ -1,4 +1,8 @@
---- name: att_launch_plan description: "Design a focused launch plan with narrative, assets, timing, and channel sequencing." user-invocable: true disable-model-invocation: false metadata: {"openclaw":{"emoji":"\ud83d\ude80"}} ---
+---
+name: att_launch_plan
+description: "Design a focused launch plan with narrative, assets, timing, and channel sequencing."
+---
+
 # Launch Plan
 
 ## Purpose

@@ -1,4 +1,8 @@
---- name: att_faq_objection_bank description: "Build a reusable bank of buyer questions, objections, and grounded answers across site, sales, and support." user-invocable: true disable-model-invocation: true metadata: {"openclaw":{"emoji":"🚧"}} ---
+---
+name: att_faq_objection_bank
+description: "Build a reusable bank of buyer questions, objections, and grounded answers across site, sales, and support."
+---
+
 # FAQ & Objection Bank
 
 ## Purpose

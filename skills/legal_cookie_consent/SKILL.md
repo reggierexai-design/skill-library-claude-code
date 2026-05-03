@@ -2,7 +2,6 @@
 name: legal_cookie_consent
 description: "Implement cookie consent and tracking compliance that meets GDPR, CCPA, and ePrivacy requirements."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🍪"}}
 ---
 
 # Cookie Consent

@@ -1,4 +1,8 @@
---- name: att_positioning_workshop description: "Define who the project is for, what pain it solves, why it wins, and why now." user-invocable: true disable-model-invocation: false metadata: {"openclaw":{"emoji":"\ud83c\udfdb\ufe0f"}} ---
+---
+name: att_positioning_workshop
+description: "Define who the project is for, what pain it solves, why it wins, and why now."
+---
+
 # Positioning Workshop
 
 ## Purpose

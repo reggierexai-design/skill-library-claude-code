@@ -2,7 +2,6 @@
 name: att_webinar_workshop_outline
 description: "Outline webinars and workshops that teach something useful while creating qualified attention for the project."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udce3"}}
 ---
 
 ## Purpose

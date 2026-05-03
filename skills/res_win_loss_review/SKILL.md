@@ -2,7 +2,6 @@
 name: res_win_loss_review
 description: "Turn won and lost deals, pilots, or evaluations into patterns about value, objections, and timing."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udd0e"}}
 ---
 
 ## Purpose

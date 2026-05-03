@@ -2,7 +2,6 @@
 name: pm_milestone_plan
 description: "Break a project into milestones, exit criteria, and dependencies that can actually be tracked."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83c\udfc1"}}
 ---
 
 ## Purpose

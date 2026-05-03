@@ -1,8 +1,7 @@
-﻿---
+---
 name: sales_pipeline_review
 description: "Review a pipeline for deal quality, bottlenecks, forecast risk, and next actions."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udcc9"}}
 ---
 
 ## Purpose

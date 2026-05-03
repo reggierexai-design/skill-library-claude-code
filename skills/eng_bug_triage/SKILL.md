@@ -2,7 +2,6 @@
 name: eng_bug_triage
 description: "Turn a vague bug report into a reproducible problem statement, likely surface area, and next action."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
 
 ## Purpose

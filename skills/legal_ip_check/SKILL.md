@@ -2,7 +2,6 @@
 name: legal_ip_check
 description: "Audit intellectual property ownership, licensing, and infringement risks before launch."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"©️"}}
 ---
 
 # IP Check

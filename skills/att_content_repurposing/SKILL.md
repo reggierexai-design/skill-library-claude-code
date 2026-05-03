@@ -1,8 +1,7 @@
-﻿---
+---
 name: att_content_repurposing
 description: "Turn one strong source asset into channel-ready derivatives without losing the core message."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\u267b\ufe0f"}}
 ---
 
 ## Purpose

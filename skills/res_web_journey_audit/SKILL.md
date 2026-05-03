@@ -2,7 +2,6 @@
 name: res_web_journey_audit
 description: "Audit a live website or product flow for clarity, friction, and attention leakage."
 user-invocable: true
-metadata: {"openclaw":{"requires":{"config":["browser.enabled"]},"emoji":"\ud83d\udd0e"}}
 ---
 
 ## Purpose

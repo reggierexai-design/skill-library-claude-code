@@ -2,7 +2,6 @@
 name: core_scout_workspace
 description: "Read the workspace quickly, map the project, and identify the files that matter."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"🧭"}}
 ---
 
 ## Purpose

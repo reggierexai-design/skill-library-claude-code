@@ -1,8 +1,7 @@
-﻿---
+---
 name: ops_postmortem_author
 description: "Write a blameless postmortem with impact, timeline, causes, and durable follow-up actions."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\udea6"}}
 ---
 
 ## Purpose

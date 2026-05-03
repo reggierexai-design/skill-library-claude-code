@@ -2,7 +2,6 @@
 name: finance_pricing_model
 description: "Design a pricing model that aligns revenue with value delivery and supports growth."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"💰"}}
 ---
 
 # Pricing Model

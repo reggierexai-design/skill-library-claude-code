@@ -2,7 +2,6 @@
 name: ops_decision_log
 description: "Keep a running decision log so workstreams stay aligned as choices, owners, and assumptions evolve."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udccb"}}
 ---
 
 ## Purpose

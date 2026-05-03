@@ -1,8 +1,7 @@
-﻿---
+---
 name: doc_glossary_builder
 description: "Build a shared glossary for terms, metrics, entities, and overloaded language across a project."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udcda"}}
 ---
 
 ## Purpose

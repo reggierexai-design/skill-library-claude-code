@@ -1,4 +1,8 @@
---- name: att_directory_submission description: "Prepare directory, marketplace, and listing submissions that improve discovery without sounding canned." user-invocable: true disable-model-invocation: true metadata: {"openclaw":{"emoji":"📋"}} ---
+---
+name: att_directory_submission
+description: "Prepare directory, marketplace, and listing submissions that improve discovery without sounding canned."
+---
+
 # Directory Submission
 
 ## Purpose

@@ -1,8 +1,7 @@
-﻿---
+---
 name: att_creator_partnerships
 description: "Design creator or expert partnerships with fit, proof, and mutual value."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83c\udfa5"}}
 ---
 
 ## Purpose

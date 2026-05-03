@@ -2,7 +2,6 @@
 name: core_handoff_summary
 description: "Wrap up work so another operator can continue without re-discovering context."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"🧭"}}
 ---
 
 ## Purpose

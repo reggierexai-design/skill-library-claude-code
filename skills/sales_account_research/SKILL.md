@@ -1,8 +1,7 @@
-﻿---
+---
 name: sales_account_research
 description: "Summarize an account in terms of likely pain, stakeholders, timing, and approach angles."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83c\udfe2","requires":{"config":["browser.enabled"]}}}
 ---
 
 ## Purpose

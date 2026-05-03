@@ -1,4 +1,8 @@
---- name: att_outbound_sequences description: "Write founder-led or team outbound messages that earn replies without spammy patterns." user-invocable: true disable-model-invocation: true metadata: {"openclaw":{"emoji":"✉️"}} ---
+---
+name: att_outbound_sequences
+description: "Write founder-led or team outbound messages that earn replies without spammy patterns."
+---
+
 # Outbound Sequences
 
 ## Purpose

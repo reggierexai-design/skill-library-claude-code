@@ -2,7 +2,6 @@
 name: eng_api_review
 description: "Review API shape, contracts, error behavior, and change safety before implementation or release."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
 
 ## Purpose

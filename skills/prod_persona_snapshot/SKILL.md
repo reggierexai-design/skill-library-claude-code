@@ -2,7 +2,6 @@
 name: prod_persona_snapshot
 description: "Synthesize the target user, buying context, pains, triggers, and objections."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udce6"}}
 ---
 
 ## Purpose

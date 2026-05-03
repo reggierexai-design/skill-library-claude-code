@@ -2,7 +2,6 @@
 name: prod_experiment_design
 description: "Turn a hypothesis into a clean experiment with decision criteria and minimum measurement."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📦"}}
 ---
 
 ## Purpose

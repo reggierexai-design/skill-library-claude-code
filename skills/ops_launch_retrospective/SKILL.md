@@ -2,7 +2,6 @@
 name: ops_launch_retrospective
 description: "Turn a launch or campaign into concrete lessons, wins, misses, and next changes."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udccb"}}
 ---
 
 ## Purpose

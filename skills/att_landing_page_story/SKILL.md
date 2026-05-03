@@ -1,4 +1,8 @@
---- name: att_landing_page_story description: "Structure a landing page so attention converts into understanding, trust, and action." user-invocable: true disable-model-invocation: true metadata: {"openclaw":{"emoji":"📄"}} ---
+---
+name: att_landing_page_story
+description: "Structure a landing page so attention converts into understanding, trust, and action."
+---
+
 # Landing Page Story
 
 ## Purpose

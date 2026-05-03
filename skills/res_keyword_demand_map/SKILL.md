@@ -2,7 +2,6 @@
 name: res_keyword_demand_map
 description: "Map search intent, topic clusters, and likely demand signals for SEO and search-discovery work."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udd0e","requires":{"config":["browser.enabled"]}}}
 ---
 
 ## Purpose

@@ -2,7 +2,6 @@
 name: des_accessibility_review
 description: "Review flows for accessibility risks in navigation, semantics, contrast, content, and feedback."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\u267f"}}
 ---
 
 ## Purpose

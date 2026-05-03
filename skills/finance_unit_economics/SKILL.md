@@ -2,7 +2,6 @@
 name: finance_unit_economics
 description: "Verify that each customer relationship is financially sustainable on a per-unit basis."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📊"}}
 ---
 
 # Unit Economics

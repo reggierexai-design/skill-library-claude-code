@@ -2,7 +2,6 @@
 name: solo_context_switch
 description: "Minimize the cognitive cost of switching between founder roles throughout the day."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔄"}}
 ---
 
 # Context Switch

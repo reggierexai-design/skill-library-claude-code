@@ -2,7 +2,6 @@
 name: ops_meeting_prep
 description: "Prepare an agenda, questions, and decision frame so a meeting creates progress instead of recap."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udccb"}}
 ---
 
 ## Purpose

@@ -2,7 +2,6 @@
 name: safe_install_gate
 description: "Review package installs, bootstrap scripts, and setup commands before execution."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"🛡️"}}
 ---
 
 ## Purpose

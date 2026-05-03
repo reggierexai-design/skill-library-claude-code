@@ -2,7 +2,6 @@
 name: doc_docs_feedback_loop
 description: "Build a lightweight loop for finding missing, stale, or confusing documentation early."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udd01"}}
 ---
 
 ## Purpose

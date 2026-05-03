@@ -2,7 +2,6 @@
 name: safe_live_systems
 description: "Handle production systems, live data, and user-facing environments with reversible, low-blast-radius steps."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"🛡️"}}
 ---
 
 ## Purpose

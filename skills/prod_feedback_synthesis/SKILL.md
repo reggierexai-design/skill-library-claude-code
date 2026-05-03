@@ -2,7 +2,6 @@
 name: prod_feedback_synthesis
 description: "Turn scattered feedback into patterns, priorities, and product actions."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📦"}}
 ---
 
 ## Purpose

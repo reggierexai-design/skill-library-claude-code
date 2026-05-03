@@ -2,7 +2,6 @@
 name: data_analysis_plan
 description: "Turn a vague data question into a scoped analysis plan with metrics, cuts, and checks."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udcca"}}
 ---
 
 ## Purpose

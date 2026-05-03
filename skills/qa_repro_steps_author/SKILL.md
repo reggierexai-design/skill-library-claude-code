@@ -1,8 +1,7 @@
-﻿---
+---
 name: qa_repro_steps_author
 description: "Write exact reproduction steps for a bug, edge case, or flaky failure without guesswork."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\udded"}}
 ---
 
 ## Purpose

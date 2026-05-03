@@ -2,7 +2,6 @@
 name: data_dashboard_brief
 description: "Design a dashboard that supports action, ownership, and review cadence instead of vanity views."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udcc8"}}
 ---
 
 ## Purpose

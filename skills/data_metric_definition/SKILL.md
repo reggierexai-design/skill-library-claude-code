@@ -2,7 +2,6 @@
 name: data_metric_definition
 description: "Write a metric definition that is consistent across teams, tools, and review meetings."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udcd0"}}
 ---
 
 ## Purpose

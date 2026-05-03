@@ -2,7 +2,6 @@
 name: core_recover_after_fail
 description: "Stabilize after a failed command, broken patch, bad assumption, or unexpected result."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"🧭"}}
 ---
 
 ## Purpose

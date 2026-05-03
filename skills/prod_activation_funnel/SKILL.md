@@ -2,7 +2,6 @@
 name: prod_activation_funnel
 description: "Improve first-run and early-return behavior so users reach value faster and more often."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📦"}}
 ---
 
 ## Purpose

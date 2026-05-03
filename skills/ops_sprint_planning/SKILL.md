@@ -2,7 +2,6 @@
 name: ops_sprint_planning
 description: "Shape the next work slice into a realistic sprint or cycle with clear priorities and tradeoffs."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📋"}}
 ---
 
 ## Purpose

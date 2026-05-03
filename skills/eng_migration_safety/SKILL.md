@@ -2,7 +2,6 @@
 name: eng_migration_safety
 description: "Plan schema, data, config, or API migrations with rollout steps, compatibility, and rollback in mind."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
 
 ## Purpose

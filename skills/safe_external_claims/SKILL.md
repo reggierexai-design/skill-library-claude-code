@@ -2,7 +2,6 @@
 name: safe_external_claims
 description: "Check public-facing claims for evidence, dates, and overstatement before publishing them."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"\ud83d\udee1\ufe0f"}}
 ---
 
 ## Purpose

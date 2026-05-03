@@ -2,7 +2,6 @@
 name: eng_issue_repro_harness
 description: "Build the smallest reproducible harness for a bug so fixes can be tested without guesswork."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
 
 ## Purpose

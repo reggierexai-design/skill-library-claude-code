@@ -2,7 +2,6 @@
 name: safe_pii_minimization
 description: "Reduce exposure of personal data by default in prompts, notes, artifacts, examples, and logs."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"🛡️"}}
 ---
 
 ## Purpose

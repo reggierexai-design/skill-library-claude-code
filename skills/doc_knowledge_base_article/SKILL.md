@@ -2,7 +2,6 @@
 name: doc_knowledge_base_article
 description: "Turn a recurring question into a support-ready article with clear steps and escalation cues."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udcd6"}}
 ---
 
 ## Purpose

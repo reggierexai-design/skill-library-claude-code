@@ -2,7 +2,6 @@
 name: des_component_contract
 description: "Define a UI component by purpose, variants, states, and constraints so teams use it consistently."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\uddf1"}}
 ---
 
 ## Purpose

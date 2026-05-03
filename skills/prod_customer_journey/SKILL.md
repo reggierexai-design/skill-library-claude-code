@@ -2,7 +2,6 @@
 name: prod_customer_journey
 description: "Map the path from first awareness to repeated value so friction, proof gaps, and drop-offs become visible."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📦"}}
 ---
 
 ## Purpose

@@ -2,7 +2,6 @@
 name: att_founder_story
 description: "Craft a believable founder or project origin story that builds trust without sounding manufactured."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udce3"}}
 ---
 
 ## Purpose

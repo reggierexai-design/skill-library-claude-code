@@ -2,7 +2,6 @@
 name: des_visual_direction
 description: "Set the visual tone, references, and constraints for a cohesive design direction."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\uddbc\ufe0f"}}
 ---
 
 ## Purpose

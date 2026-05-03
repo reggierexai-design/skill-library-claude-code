@@ -2,7 +2,6 @@
 name: res_source_check
 description: "Verify important claims against high-quality sources and mark what is still uncertain."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔎"}}
 ---
 
 ## Purpose

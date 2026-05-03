@@ -2,7 +2,6 @@
 name: finance_tax_checklist
 description: "Prepare tax obligations checklist for a small business or solo founder."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📋"}}
 ---
 
 # Tax Checklist

@@ -2,7 +2,6 @@
 name: core_risk_gate
 description: "Slow down risky actions involving installs, secrets, destructive edits, money, or live accounts."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"🧭"}}
 ---
 
 ## Purpose

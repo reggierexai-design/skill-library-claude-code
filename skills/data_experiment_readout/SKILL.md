@@ -2,7 +2,6 @@
 name: data_experiment_readout
 description: "Read an experiment with effect size, uncertainty, caveats, and next actions instead of hype."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\uddea"}}
 ---
 
 ## Purpose

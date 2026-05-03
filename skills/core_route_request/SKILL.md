@@ -2,7 +2,6 @@
 name: core_route_request
 description: "Classify the task, choose the right specialist path, and avoid premature action."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"🧭"}}
 ---
 
 ## Purpose

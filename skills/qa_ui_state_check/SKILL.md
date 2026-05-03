@@ -1,8 +1,7 @@
-﻿---
+---
 name: qa_ui_state_check
 description: "Review UI states so loading, empty, error, success, and permission cases all behave coherently."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\ude9f"}}
 ---
 
 ## Purpose

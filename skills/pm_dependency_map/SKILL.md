@@ -2,7 +2,6 @@
 name: pm_dependency_map
 description: "Map the teams, systems, approvals, and sequencing that could block delivery."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udd78\ufe0f"}}
 ---
 
 ## Purpose

@@ -2,7 +2,6 @@
 name: eng_incident_response
 description: "Stabilize a service issue with fast diagnosis, containment, user-impact framing, and clear next actions."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
 
 ## Purpose

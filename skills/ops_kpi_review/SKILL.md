@@ -2,7 +2,6 @@
 name: ops_kpi_review
 description: "Turn weekly or monthly metrics into a decision-oriented review instead of a passive reporting recap."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📋"}}
 ---
 
 ## Purpose

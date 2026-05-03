@@ -2,7 +2,6 @@
 name: core_context_budget
 description: "Keep a run lean by selecting only the context and skills that change the next decision."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"\ud83e\uddee"}}
 ---
 
 ## Purpose

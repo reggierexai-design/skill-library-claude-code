@@ -2,7 +2,6 @@
 name: res_message_board_scan
 description: "Scan forums, communities, and comment threads for pains, objections, language, and attention hooks."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udd0e","requires":{"config":["browser.enabled"]}}}
 ---
 
 ## Purpose

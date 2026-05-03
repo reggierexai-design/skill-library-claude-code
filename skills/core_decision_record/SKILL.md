@@ -2,7 +2,6 @@
 name: core_decision_record
 description: "Capture options, tradeoffs, and the chosen path so future work does not repeat the same debate."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"🧭"}}
 ---
 
 ## Purpose

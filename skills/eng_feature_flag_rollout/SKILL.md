@@ -1,8 +1,7 @@
-﻿---
+---
 name: eng_feature_flag_rollout
 description: "Design a staged feature-flag rollout with targeting, monitoring, and rollback criteria."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udea9"}}
 ---
 
 ## Purpose

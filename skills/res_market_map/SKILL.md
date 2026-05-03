@@ -2,7 +2,6 @@
 name: res_market_map
 description: "Segment a market into audiences, jobs, triggers, channels, and buying alternatives."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔎"}}
 ---
 
 ## Purpose

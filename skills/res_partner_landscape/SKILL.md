@@ -2,7 +2,6 @@
 name: res_partner_landscape
 description: "Find plausible partners, integrations, and channel allies with fit, leverage, and mutual value."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udd0e","requires":{"config":["browser.enabled"]}}}
 ---
 
 ## Purpose

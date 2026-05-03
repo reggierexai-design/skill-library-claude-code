@@ -2,7 +2,6 @@
 name: data_pipeline_triage
 description: "Triage broken or delayed data flows by isolating the failing stage and recovery options."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\uddf1"}}
 ---
 
 ## Purpose

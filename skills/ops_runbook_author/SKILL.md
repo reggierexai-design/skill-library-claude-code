@@ -2,7 +2,6 @@
 name: ops_runbook_author
 description: "Write operational runbooks that are easy to follow under pressure."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udccb"}}
 ---
 
 ## Purpose

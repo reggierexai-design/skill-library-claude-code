@@ -2,7 +2,6 @@
 name: vibe_ai_pair_program
 description: "Use AI as a pair programming partner to build, review, and improve code collaboratively."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🤖"}}
 ---
 
 # AI Pair Program

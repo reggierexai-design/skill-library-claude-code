@@ -2,7 +2,6 @@
 name: eng_repo_onboarding
 description: "Understand a codebase fast enough to work safely without pretending to know more than you do."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udee0\ufe0f"}}
 ---
 
 ## Purpose

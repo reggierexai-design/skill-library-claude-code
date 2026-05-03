@@ -1,4 +1,8 @@
---- name: att_thread_writer description: "Write social threads that teach, provoke, or persuade without sounding generic or inflated." user-invocable: true disable-model-invocation: true metadata: {"openclaw":{"emoji":"\ud83d\udce3"}} ---
+---
+name: att_thread_writer
+description: "Write social threads that teach, provoke, or persuade without sounding generic or inflated."
+---
+
 # Thread Writer
 
 ## Purpose

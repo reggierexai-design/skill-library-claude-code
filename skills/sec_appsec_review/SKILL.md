@@ -1,8 +1,7 @@
-﻿---
+---
 name: sec_appsec_review
 description: "Review code or design for common application-security weaknesses and realistic exploit paths."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udd10"}}
 ---
 
 ## Purpose

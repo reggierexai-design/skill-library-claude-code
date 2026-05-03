@@ -2,7 +2,6 @@
 name: vibe_prompt_to_app
 description: "Turn a natural language prompt into a working app prototype using AI code generation tools."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"✨"}}
 ---
 
 # Prompt To App

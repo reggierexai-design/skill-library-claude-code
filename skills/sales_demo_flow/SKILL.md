@@ -1,8 +1,7 @@
-﻿---
+---
 name: sales_demo_flow
 description: "Shape a demo around the buyer problem, proof points, and next commitment instead of a product tour."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udda5\ufe0f"}}
 ---
 
 ## Purpose

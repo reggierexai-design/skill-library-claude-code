@@ -1,8 +1,7 @@
-﻿---
+---
 name: qa_acceptance_test_plan
 description: "Turn requirements into a lean acceptance plan that proves the change works for real users."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\u2705"}}
 ---
 
 ## Purpose

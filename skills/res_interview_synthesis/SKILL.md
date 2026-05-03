@@ -2,7 +2,6 @@
 name: res_interview_synthesis
 description: "Turn user calls, notes, and transcripts into pains, language patterns, and decision inputs."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udd0e"}}
 ---
 
 ## Purpose

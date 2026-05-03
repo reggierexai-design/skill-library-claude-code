@@ -1,8 +1,7 @@
-﻿---
+---
 name: qa_test_case_matrix
 description: "Build a compact matrix of states, roles, inputs, and environments that must be tested."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\uddee"}}
 ---
 
 ## Purpose

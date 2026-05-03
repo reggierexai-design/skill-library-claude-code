@@ -2,7 +2,6 @@
 name: pm_stakeholder_update
 description: "Write a crisp update that explains progress, risk, decisions, and asks without noise."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udcec"}}
 ---
 
 ## Purpose

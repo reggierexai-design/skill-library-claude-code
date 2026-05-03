@@ -2,7 +2,6 @@
 name: eng_refactor_design
 description: "Plan or execute a refactor that improves structure without losing behavior."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
 
 ## Purpose

@@ -1,8 +1,7 @@
-﻿---
+---
 name: data_quality_checks
 description: "Design recurring checks for freshness, completeness, consistency, and metric integrity."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udccf"}}
 ---
 
 ## Purpose

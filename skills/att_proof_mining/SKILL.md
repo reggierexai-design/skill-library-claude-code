@@ -1,4 +1,8 @@
---- name: att_proof_mining description: "Extract credible proof points, testimonials, wins, and user language from messy source material." user-invocable: true disable-model-invocation: false metadata: {"openclaw":{"emoji":"📣"}} ---
+---
+name: att_proof_mining
+description: "Extract credible proof points, testimonials, wins, and user language from messy source material."
+---
+
 # Proof Mining
 
 ## Purpose

@@ -2,7 +2,6 @@
 name: eng_code_review_pass
 description: "Review a change for correctness, regressions, maintainability, and deployment safety before merge."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
 
 ## Purpose

@@ -2,7 +2,6 @@
 name: core_parallelize_work
 description: "Split a task into safe parallel tracks while keeping dependencies and merge points explicit."
 user-invocable: false
-metadata: {"openclaw":{"emoji":"\ud83e\ude93"}}
 ---
 
 ## Purpose

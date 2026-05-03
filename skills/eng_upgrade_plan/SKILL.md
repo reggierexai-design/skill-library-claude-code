@@ -1,8 +1,7 @@
-﻿---
+---
 name: eng_upgrade_plan
 description: "Plan a dependency or platform upgrade with compatibility checks, rollout steps, and rollback paths."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\u2b06\ufe0f"}}
 ---
 
 ## Purpose

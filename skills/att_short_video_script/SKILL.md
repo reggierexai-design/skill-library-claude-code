@@ -1,4 +1,8 @@
---- name: att_short_video_script description: "Write short video scripts for demos, explainers, or social clips with fast hooks and clear payoff." user-invocable: true disable-model-invocation: true metadata: {"openclaw":{"emoji":"🎬"}} ---
+---
+name: att_short_video_script
+description: "Write short video scripts for demos, explainers, or social clips with fast hooks and clear payoff."
+---
+
 # Short Video Script
 
 ## Purpose

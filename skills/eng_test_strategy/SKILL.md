@@ -2,7 +2,6 @@
 name: eng_test_strategy
 description: "Design the smallest reliable test set that protects the important behavior of the change."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
 
 ## Purpose

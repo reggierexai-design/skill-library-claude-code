@@ -1,8 +1,7 @@
-﻿---
+---
 name: data_segmentation_plan
 description: "Plan how to segment users, accounts, or events so analysis reveals actionable differences."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\udde9"}}
 ---
 
 ## Purpose

@@ -2,7 +2,6 @@
 name: legal_terms_review
 description: "Review terms of service and privacy policy for gaps, risks, and compliance."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📜"}}
 ---
 
 # Terms Review

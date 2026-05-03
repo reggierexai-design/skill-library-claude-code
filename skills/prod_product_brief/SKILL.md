@@ -2,7 +2,6 @@
 name: prod_product_brief
 description: "Turn an idea or request into a crisp product brief with users, problem, outcome, scope, and constraints."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udce6"}}
 ---
 
 ## Purpose

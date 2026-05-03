@@ -2,7 +2,6 @@
 name: vibe_debug_no_code
 description: "Debug AI-generated code when you can't read the code yourself."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔧"}}
 ---
 
 # Debug No Code

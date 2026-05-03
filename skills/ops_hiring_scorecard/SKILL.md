@@ -1,8 +1,7 @@
-﻿---
+---
 name: ops_hiring_scorecard
 description: "Create a role scorecard with outcomes, competencies, and structured interview signals."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83c\udfaf"}}
 ---
 
 ## Purpose

@@ -2,7 +2,6 @@
 name: solo_rapid_ship
 description: "Ship a meaningful improvement every week, even as a solo founder with limited capacity."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🚀"}}
 ---
 
 # Rapid Ship

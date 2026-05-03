@@ -2,7 +2,6 @@
 name: des_design_brief
 description: "Translate a product problem into a design brief with users, constraints, and success criteria."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83c\udfa8"}}
 ---
 
 ## Purpose

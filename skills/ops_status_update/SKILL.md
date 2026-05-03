@@ -2,7 +2,6 @@
 name: ops_status_update
 description: "Write concise status updates that show progress, risk, and next steps without hiding reality."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udccb"}}
 ---
 
 ## Purpose

@@ -2,7 +2,6 @@
 name: comm_growth_loop
 description: "Design a viral loop where community members naturally invite others, growing the community organically."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔄"}}
 ---
 
 # Growth Loop

@@ -2,7 +2,6 @@
 name: solo_wearing_hats
 description: "Inventory your founder roles, estimate time each needs, and find delegation or automation opportunities."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🎩"}}
 ---
 
 # Wearing Hats

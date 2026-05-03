@@ -2,7 +2,6 @@
 name: data_anomaly_triage
 description: "Triage a surprising metric change by checking definitions, pipelines, seasonality, and real behavior."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udea8"}}
 ---
 
 ## Purpose

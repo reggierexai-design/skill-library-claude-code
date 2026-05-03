@@ -2,7 +2,6 @@
 name: ops_issue_tracker_hygiene
 description: "Clean up issues, labels, priorities, and ownership so the tracker supports action instead of confusion."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\udccb"}}
 ---
 
 ## Purpose

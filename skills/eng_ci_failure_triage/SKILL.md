@@ -2,7 +2,6 @@
 name: eng_ci_failure_triage
 description: "Turn a failing CI run into a narrowed cause, likely fix path, and safe next step."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🛠️"}}
 ---
 
 ## Purpose

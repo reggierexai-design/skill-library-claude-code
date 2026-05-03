@@ -2,7 +2,6 @@
 name: comm_ritual_design
 description: "Design community rituals that create belonging, rhythm, and recurring engagement."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"🔮"}}
 ---
 
 # Ritual Design

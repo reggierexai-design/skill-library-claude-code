@@ -2,7 +2,6 @@
 name: des_usability_test_plan
 description: "Plan lightweight usability sessions that reveal friction, confusion, and unmet expectations."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83e\uddea"}}
 ---
 
 ## Purpose

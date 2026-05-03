@@ -2,7 +2,6 @@
 name: vibe_learning_path
 description: "Build a structured learning path that teaches you what you need as you build, not before."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"📚"}}
 ---
 
 # Learning Path

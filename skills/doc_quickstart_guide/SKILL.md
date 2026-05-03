@@ -2,7 +2,6 @@
 name: doc_quickstart_guide
 description: "Write a fast-start guide that gets a new user to first success with minimal friction."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83d\ude80"}}
 ---
 
 ## Purpose

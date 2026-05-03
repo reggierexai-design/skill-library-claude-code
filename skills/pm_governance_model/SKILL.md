@@ -1,8 +1,7 @@
-﻿---
+---
 name: pm_governance_model
 description: "Define decision rights, review cadence, escalation paths, and operating rules for a program."
 user-invocable: true
-metadata: {"openclaw":{"emoji":"\ud83c\udfdb\ufe0f"}}
 ---
 
 ## Purpose
